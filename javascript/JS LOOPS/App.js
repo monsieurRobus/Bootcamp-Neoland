@@ -73,6 +73,28 @@ const placesToTravel2 = [{id: 5, name: 'Japan'}, {id: 11, name: 'Venecia'}, {id:
         
 console.log(placesToTravel2)
 
+// Iteracion #6
+
+const toys = [
+    {id: 5, name: 'Buzz MyYear'}, 
+    {id: 11, name: 'Action Woman'}, 
+    {id: 23, name: 'Barbie Man'}, 
+    {id: 40, name: 'El gato con Guantes'},
+    {id: 40, name: 'El gato felix'}
+    ]
+
+for (juguete of toys) {
+
+    if (juguete.name.includes("gato")) {
+        delete toys[toys.indexOf(juguete)]
+    }
+
+
+}
+    
+toys.filter(a=>a)
+
+console.log(toys)
 
 
 
