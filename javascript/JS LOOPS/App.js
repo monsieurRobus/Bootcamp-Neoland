@@ -42,3 +42,24 @@ alumns.forEach(alumno => {
     
     
 console.log(alumns)
+
+
+// Iteracion #3
+
+const placesToTravel = ['Japon', 'Venecia', 'Murcia', 'Santander', 'Filipinas', 'Madagascar']
+
+for (destino of placesToTravel) 
+    console.log(destino);
+
+
+// Iteracion #4
+
+const alien = {
+    name: 'Wormuck',
+    race: 'Cucusumusu',
+    planet: 'Eden',
+    weight: '259kg'
+}
+
+for (propiedad in alien) 
+    console.log(`${propiedad}: ${alien[propiedad]}`)
