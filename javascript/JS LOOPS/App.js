@@ -32,10 +32,13 @@ const alumns = [
 // La función simple sería F = a'bc + ab'c + abc' + abc, 
 // simplificando sería: F = bc + ac + ab
 
-for (let i=0; i<alumns.length; i++)
-    if (alumns[i].T2 && alumns[i].T3 || alumns[i].T1 && alumns[i].T3 || alumns[i].T1 && alumns[i].T2)
-        alumns[i].isApproved=true;
+alumns.forEach(alumno => {
+    if (alumno.T2 && alumno.T3 || alumno.T1 && alumno.T3 || alumno.T1 && alumno.T2)
+        alumno.isApproved=true;
     else 
-        alumns[i].isApproved=false;
+        alumno.isApproved=false;
+})
+    // Aplicamos la logica calculada más arriba
+    
     
 console.log(alumns)
