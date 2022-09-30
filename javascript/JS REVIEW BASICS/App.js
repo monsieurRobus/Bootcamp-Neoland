@@ -156,4 +156,19 @@ function findArrayIndex(array,text) {
 
 console.log(findArrayIndex(arrayEjemplo,'Salamandra'))
 
+// Iteracion #5
+console.log("Iteracion#5")
 
+let carasDado = 21
+function rollDice(caras) {
+    return Math.floor(Math.random()*caras)+1
+}
+
+console.log(`Tiramos un dado de ${carasDado} caras y el resultado es ${rollDice(carasDado)}`)
+
+// Iteracion #6
+console.log("Iteracion#6")
+
+function swap(array,index1,index2){
+    
+}
