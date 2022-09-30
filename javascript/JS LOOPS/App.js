@@ -83,21 +83,39 @@ const toys = [
     {id: 40, name: 'El gato felix'}
     ]
 
+
+const toysKeep = [
+
+]
+
 for (juguete of toys) {
 
-    if (juguete.name.includes("gato")) {
-        delete toys[toys.indexOf(juguete)]
+    if (!juguete.name.includes("gato")) {
+        toysKeep.push(juguete)
     }
 
-
 }
-    
-toys.filter(a=>a)
-
-console.log(toys)
 
 
+console.log(toysKeep)
 
+
+// Iteracion #7
+
+const popularToys = [];
+const toys3 = [
+	{id: 5, name: 'Buzz MyYear', sellCount: 10}, 
+	{id: 11, name: 'Action Woman', sellCount: 24}, 
+	{id: 23, name: 'Barbie Man', sellCount: 15}, 
+	{id: 40, name: 'El gato con Guantes', sellCount: 8},
+	{id: 40, name: 'El gato felix', sellCount: 35}
+]
+
+for (juguete of toys3)
+    if(juguete.sellCount >15)
+        popularToys.push(juguete)
+
+console.log(popularToys)
 
 
 
