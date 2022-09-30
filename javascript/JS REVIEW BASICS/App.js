@@ -170,5 +170,21 @@ console.log(`Tiramos un dado de ${carasDado} caras y el resultado es ${rollDice(
 console.log("Iteracion#6")
 
 function swap(array,index1,index2){
+    // Inicio del array: 0
+    // Fin del array: longitud-1
+
+    if(index1<0)
+        throw "Index1 es menor que 0, revise el valor"
+
+    if(index2>array.length-1)
+        throw "Index2 es mayor que la longitud del array, revise el valor"   
+
+    let aux = arrayEjemplo[index1]
+    arrayEjemplo[index1]=arrayEjemplo[index2]
+    arrayEjemplo[index2]=aux
+
+    return arrayEjemplo
     
 }
+
+console.log(swap(arrayEjemplo,1,2))
