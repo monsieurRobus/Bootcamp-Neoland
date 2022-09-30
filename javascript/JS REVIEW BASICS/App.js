@@ -64,11 +64,46 @@ const users = [
 ]
 
 let media = 0;
-let sonidos = 0;
+let contador = 0;
 for (usuario of users)  
     for (sonido in usuario.favoritesSounds)
         media=usuario.favoritesSounds[sonido].volume;
-        sonidos+=1;
+        contador+=1;
 
-media=media/sonidos;
+media=media/contador;
 console.log(media)
+
+// Iteracion #3
+
+
+const users2 = [
+    {name: 'Manolo el del bombo',
+        favoritesSounds: {
+            waves: {format: 'mp3', volume: 50},
+            rain: {format: 'ogg', volume: 60},
+            firecamp: {format: 'mp3', volume: 80},
+        }
+    },
+    {name: 'Mortadelo',
+        favoritesSounds: {
+            waves: {format: 'mp3', volume: 30},
+            shower: {format: 'ogg', volume: 55},
+            train: {format: 'mp3', volume: 60},
+        }
+    },
+    {name: 'Super Lopez',
+        favoritesSounds: {
+            shower: {format: 'mp3', volume: 50},
+            train: {format: 'ogg', volume: 60},
+            firecamp: {format: 'mp3', volume: 80},
+        }
+    },
+    {name: 'El culebra',
+        favoritesSounds: {
+            waves: {format: 'mp3', volume: 67},
+            wind: {format: 'ogg', volume: 35},
+            firecamp: {format: 'mp3', volume: 60},
+        }
+    },
+]
+
