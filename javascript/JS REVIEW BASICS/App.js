@@ -137,9 +137,23 @@ for (user of users2)
         if(sonidosFavoritosArray.includes(sonido))
             contadorFavoritosArray[sonidosFavoritosArray.indexOf(sonido)]+=1;
 
-
 for (sonFav of sonidosFavoritosArray)
     sonidosFavoritos.push({name:sonFav,cantidad:contadorFavoritosArray[sonidosFavoritosArray.indexOf(sonFav)]})
 console.log("Lista de sonidos favoritos:")
 console.log(sonidosFavoritos)
     
+
+// Iteración #4
+console.log("Iteracion#4")
+let arrayEjemplo = ['Caracol', 'Mosquito', 'Salamandra', 'Ajolote'];
+
+function findArrayIndex(array,text) {
+    if(array.includes(text))
+        return array.indexOf(text)
+    else   
+        return "No hay coincidencias"
+}
+
+console.log(findArrayIndex(arrayEjemplo,'Salamandra'))
+
+
