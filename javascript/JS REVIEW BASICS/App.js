@@ -74,8 +74,14 @@ media=media/contador;
 console.log(media)
 
 // Iteracion #3
-
-
+// sonidosFavoritos será un array de objetos con dos propiedades, 
+//
+//  [ {
+//    name: "",
+//    contador: ""
+//  } ]
+//
+let contarSonidos = 0;
 const users2 = [
     {name: 'Manolo el del bombo',
         favoritesSounds: {
@@ -107,3 +113,33 @@ const users2 = [
     },
 ]
 
+
+
+
+console.log("Iteracion#3")
+// Almaceno en un array los diferentes sonidos favoritos que tenemos e inicializamos el array contador
+
+let sonidosFavoritos=[]
+let sonidosFavoritosArray = []
+let contadorFavoritosArray = []
+
+for (user of users2)
+    for (sonido in user.favoritesSounds)
+        if(!sonidosFavoritosArray.includes(sonido))
+            {
+                sonidosFavoritosArray.push(sonido)
+                contadorFavoritosArray.push(0)
+            } 
+
+// Vamos contando el numero de veces que aparecen en los usuarios favoritos  
+for (user of users2)
+    for (sonido in user.favoritesSounds)
+        if(sonidosFavoritosArray.includes(sonido))
+            contadorFavoritosArray[sonidosFavoritosArray.indexOf(sonido)]+=1;
+
+
+for (sonFav of sonidosFavoritosArray)
+    sonidosFavoritos.push({name:sonFav,cantidad:contadorFavoritosArray[sonidosFavoritosArray.indexOf(sonFav)]})
+console.log("Lista de sonidos favoritos:")
+console.log(sonidosFavoritos)
+    
