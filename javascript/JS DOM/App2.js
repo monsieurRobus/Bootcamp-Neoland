@@ -49,7 +49,7 @@ for (nodo of nodosBorrar)
 // 	Recuerda que no solo puedes insertar elementos con .appendChild.
 let nuevaP = document.createElement("p");
 nuevaP.innerHTML = "Voy en medio!";
-let insertar = document.querySelector("div.fn-insert-here");
+let insertar = document.querySelector("div.fn-insert-here"); // ¿entre que dos div?
 
 // 2.9 Inserta p con el texto 'Voy dentro!', dentro de todos los div con la clase .fn-insert-here
 let nuevaP2;
