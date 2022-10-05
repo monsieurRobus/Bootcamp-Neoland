@@ -9,19 +9,31 @@ function sum(numberOne, numberTwo) {
 
 // Iteration 2
 
-const avengers = ['Hulk', 'Thor', 'IronMan', 'Captain A.', 'Spiderman', 'Captain M.'];
+const avengers = ['Hulk', 'Thor', 'IronMan','D. Strange','Captain A.', 'Spiderman', 'Captain M.','Antman'];
 
-function findLongestWord(a) {
+function findLongestWord(listaHeroes) {
 
     let palabraMasLarga='';
 
-    for (let i=0;i<a.length;i++)
-        if (a[i].length > palabraMasLarga.length)
-            palabraMasLarga = a[i];
+    // for (let i=0;i<listaHeroes.length;i++)
+    //     if (listaHeroes[i].length > palabraMasLarga.length)
+    //         palabraMasLarga = listaHeroes[i];
         
+    listaHeroes.forEach(heroe => {
+        if(heroe.length > palabraMasLarga.length)
+            palabraMasLarga = heroe;
+    });
+
+    // for (heroe of listaHeroes)
+    //     if(heroe.length > palabraMasLarga.length)
+    //         palabraMasLarga = heroe
+
+
     return palabraMasLarga
 
 }
+
+console.log(findLongestWord(avengers))
 
 // Iteration 3
 
@@ -111,6 +123,15 @@ function removeDuplicates_2(a){
     return a;
 }
 
+// Solución 3 // Usando método filter, solución original de mi compañero JuanSa, la cual me pareció muy interesante y quise aprender en mayor detalle
+
+const removeDuplicates_3 = (heroes) => {
+    return result = heroes.filter((heroe,index) => {
+        return heroes.indexOf(heroe) === index
+    })
+}
+
+console.log(removeDuplicates_3(duplicates))
 
 // Iterar 7
 
