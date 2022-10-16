@@ -156,36 +156,62 @@ console.log(visitas)
 
 // 5.1 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
 // con los valores que sean mayor que 18
-// const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+
+const mayoresDeEdad = ages.filter(edad => edad>18)
+console.log(mayoresDeEdad)
 
 // 5.2 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
 // con los valores que sean par.
-// const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+const ages2 = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+
+const edadesPar = ages2.filter(edad => (edad % 2 == 0))
+console.log(edadesPar)
+
 
 // 5.3 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
 // con los streamers que tengan el gameMorePlayed = 'League of Legends'.
-// const streamers = [
-// 	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
-// 	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'}, 
-// 	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
-// 	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
-// ];
+const streamers = [
+	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
+	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'}, 
+	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
+	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
+];
+
+const lol = streamers.filter(streamer => (streamer.gameMorePlayed==='League of Legends'))
+console.log(lol);
+
 
 // 5.4 Dado el siguiente array, utiliza .filter() para generar un nuevo array 
 // con los streamers que incluyan el caracter 'u' en su propiedad .name. Recomendamos 
 // usar la funcion .includes() para la comprobación.
-// const streamers = [
-// 	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
-// 	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
-// 	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
-// 	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
-// ];
+const streamers2 = [
+	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
+	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
+	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
+	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
+];
+
+const streamurs = streamers2.filter(streamer => streamer.name.includes('u'))
+console.log(streamurs)
 
 // 5.5 utiliza .filter() para generar un nuevo array con los streamers que incluyan 
 // el caracter 'Legends' en su propiedad .gameMorePlayed. Recomendamos usar la funcion 
 // .includes() para la comprobación.
 // Además, pon el valor de la propiedad .gameMorePlayed a MAYUSCULAS cuando 
 // .age sea mayor que 35.
+
+const streamerLegend = streamers2   .filter(streamer =>  streamer.gameMorePlayed.includes('Legends'))
+                                    .map(streamer => 
+                                        { 
+                                            if(streamer.age > 35) 
+                                                streamer.gameMorePlayed = streamer.gameMorePlayed.toUpperCase()
+
+                                            return streamer
+
+                                        })
+
+console.log(streamerLegend)
 
 // 5.6 Dado el siguiente html y javascript, utiliza .filter() para mostrar por consola 
 // los streamers que incluyan la palabra introducida en el input. De esta forma, si 
@@ -198,18 +224,8 @@ console.log(visitas)
 // 	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
 // ];
 
-// <!doctype html>
-// <html lang="en">
-// <head>
-// <meta charset="UTF-8">
-//              <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-//              <meta http-equiv="X-UA-Compatible" content="ie=edge">
-//              <title>Document</title>
-// </head>
-// <body>
-//   <input type="text" data-function="toFilterStreamers"/>
-// </body>
-// </html>
+// MIRAR ARCHIVO ITERACION5.6.js Y EL INDEX.HTML
+
 
 // 5.7 Dado el siguiente html y javascript, utiliza .filter() para mostrar por consola 
 // los streamers que incluyan la palabra introducida en el input. De esta forma, si 
@@ -236,3 +252,41 @@ console.log(visitas)
 //   <button data-function="toShowFilterStreamers">Filter</button>
 // </body>
 // </html>
+
+
+// ITERACIÓN #6
+
+// 6.1 Dado el siguiente array, usa .find() para econtrar el número 100.
+const numbers = [32, 21, 63, 95, 100, 67, 43];
+
+console.log(numbers.find(number => number === 100))
+
+// 6.2 Dado el siguiente array, usa .find() para econtrar la pelicula del año 2010.
+const movies = [
+	{title: 'Madagascar', stars: 4.5, date: 2015},
+	{title: 'Origen', stars: 5, date: 2010},
+	{title: 'Your Name', stars: 5, date: 2016}
+];
+
+console.log(movies.find(pelicula => pelicula.date === 2010))
+
+
+// 6.3 Dado el siguiente javascript, usa .find() para econtrar el alien de nombre 
+// 'Cucushumushu' y la mutación 'Porompompero'. Una vez que los encuentres, usa 
+// spread operator para fusionarlos teniendo en cuenta que el objeto de la mutación 
+// lo queremos meter en la propiedad .mutation del objeto fusionado.
+const aliens = [
+	{name: 'Zalamero', planet: 'Eden', age: 4029},
+	{name: 'Paktu', planet: 'Andromeda', age: 32},
+	{name: 'Cucushumushu', planet: 'Marte', age: 503021}
+];
+const mutations = [
+	{name: 'Porompompero', description: 'Hace que el alien pueda adquirir la habilidad de tocar el tambor'},
+	{name: 'Fly me to the moon', description: 'Permite volar, solo y exclusivamente a la luna'},
+	{name: 'Andando que es gerundio', description: 'Invoca a un señor mayor como Personal Trainer'}
+];
+const cucushumushu = aliens.find(alien => alien.name==="Cucushumushu")
+const cucushumushuMutation = mutations.find(mutacion => mutacion.name ="Porompompero")
+const cucushumushuComplete = {...cucushumushu, mutation:cucushumushuMutation}
+
+console.log(cucushumushuComplete)
