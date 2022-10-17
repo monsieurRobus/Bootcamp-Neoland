@@ -1,0 +1,1 @@
+console.log(['a','a','a','a','a','a','b','b','b','b','c','c','c',].find(elemento => {elemento==='e'}))
