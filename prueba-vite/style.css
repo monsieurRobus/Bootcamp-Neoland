@@ -6,13 +6,19 @@ body {
 }
 
 header {
-  height: 10vh;
+  height: 20vh;
 }
 
 header > nav{  
   display: flex;
   justify-content: center; 
   align-items: center;
+}
+
+header > img {
+  display: block;
+  margin: 0 auto;
+  
 }
 
 header > h1 {
@@ -26,4 +32,47 @@ ul {
 header > nav > ul {
   display:flex;
   gap: 1rem;
+}
+
+.genre { 
+  margin: 0 1rem;
+  padding: 0.5rem;
+  border: 1px solid aquamarine;
+  background-color: aquamarine;
+  border-radius: 20px;
+
+}
+
+.genre.rock {
+  font-weight: 500;
+  border: 1px solid coral;
+  background-color: coral;
+}
+
+#biografia {
+  padding:1rem;
+}
+
+#albumes {
+  display:flex;
+}
+
+.album {  
+  flex:1;
+}
+
+.album >img {
+  width:80%;
+}
+
+.titulo-cancion {
+  margin: 0.4rem 0 ;
+}
+
+.duracion {
+  margin: 0 0.4rem;
+  padding: 0.1rem;
+  border: 0 solid aquamarine;
+  background-color: aquamarine;
+  border-radius: 4px;
 }

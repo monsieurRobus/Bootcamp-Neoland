@@ -1,3 +1,5 @@
+import { data } from "./data";
+
 export const Header = () => `
 
     <nav>
@@ -7,6 +9,7 @@ export const Header = () => `
             <li>Discography</li>
         </ul>
     </nav>
+    <img src="${data.logo}" alt="Logo de MUSE"/>
 
 
 `;

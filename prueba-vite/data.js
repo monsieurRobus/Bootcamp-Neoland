@@ -6,7 +6,7 @@ export const data = {
     albums: [
         {
             title: "Showbiz",
-            type: "Regular",
+            type: "Album",
             cover: 'https://upload.wikimedia.org/wikipedia/en/9/9d/Museshowbizalbumcover.jpg',
             length: 2976,
             songlist:  [
@@ -67,7 +67,7 @@ export const data = {
         },
         {
             title: "Origin of Symmetry",
-            type: "Regular",
+            type: "Album",
             cover: 'https://upload.wikimedia.org/wikipedia/en/3/35/Muse_-_Origin_of_Symmetry_cover_art.png',
             length: 3101,
             songlist:  [
@@ -124,7 +124,7 @@ export const data = {
         },
         {
             title: "Absolution",
-            type: "Regular",
+            type: "Album",
             cover: 'https://upload.wikimedia.org/wikipedia/en/b/b4/Muse_-_Absolution_Cover_UK.jpg',
             length: 3139,
             songlist:  [
@@ -183,6 +183,63 @@ export const data = {
                 {
                     title: 'Fury',
                     length: 302
+                }
+                
+            ]
+        },
+        {
+            title: "Black Holes and Revelations",
+            type: "Album",
+            cover: 'https://upload.wikimedia.org/wikipedia/en/c/c5/BlackHolesCover.jpg',
+            length: 3008,
+            songlist:  [
+                {
+                    title: 'Take a Bow',
+                    length: 275
+                },
+                {
+                    title: 'Starlight',
+                    length: 240
+                },
+                {
+                    title: 'Supermassive Black Hole',
+                    length: 212
+                }
+                ,{
+                    title: 'Map of the Problematique',
+                    length: 258
+                }
+                ,{
+                    title: 'Soldier`s Poem',
+                    length: 124
+                }
+                ,{
+                    title: 'Invincible',
+                    length: 301
+                }
+                ,{
+                    title: 'Assasin',
+                    length: 211
+                }
+                ,{
+                    title: 'Exo-Politics',
+                    length: 233
+                }
+                ,{
+                    title: 'City of Delusion',
+                    length: 288
+                }
+                ,{
+                    title: 'Hoodoo',
+                    length: 223
+                },
+                {
+                    title: 'Knights of Cydonia',
+                    length: 366
+                },
+                {
+                    title: 'Glorious',
+                    length: 281
                 }
                 
             ]
