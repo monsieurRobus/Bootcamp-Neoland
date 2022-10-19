@@ -174,5 +174,29 @@ const counterWords = [
     'upgrade',
     'code'
 ];
+
+
+// Solucion propuesta por Pedro 
+let repeticiones = [];
+let palabras = [];
+
+
 function repeatCounter(a) {
+    
+    for (palabra of a)
+
+    if(palabras.includes(palabra))        
+        repeticiones[palabras.indexOf(palabra)]+=1;
+    else
+        {
+            palabras.push(palabra)
+            repeticiones.push(1)
+        }
+    
 }
+
+repeatCounter(counterWords)
+
+
+console.log(`${palabras} ${repeticiones}`)
+
