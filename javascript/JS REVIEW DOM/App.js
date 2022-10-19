@@ -44,8 +44,10 @@ document.body.appendChild(listaPaises)
 // 1.5 Basandote en el ejercicio anterior. Crea un botón que elimine el último 
 // elemento de la lista.
 
+// CORRECCIÓN FUNCIONES ES6
+
 const eliminaUltimo = (e) => {
-    let listaElementos= [...document.querySelector("#listaPaises").childNodes]
+    let listaElementos= [].push(document.querySelector("#listaPaises").childNodes)
     if (listaElementos.length>0)
         listaElementos[listaElementos.length-1].remove()
 }
