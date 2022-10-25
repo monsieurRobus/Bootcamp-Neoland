@@ -1,7 +1,29 @@
+@font-face {
+  font-family: 'EfectiviFont';
+  src: url('../font/Cosmonaut.ttf');
+}
+
 body { 
 
   margin: 0;
 
+}
+
+.logoG {
+  font-family: 'EfectiviFont';
+  width:15%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.logoG img {
+  display: flex;
+  object-fit: contain;
+  justify-content: center;
+  width:15vw;
+  max-width: 85px;
+  max-height: 85px;
 }
 
 h1 {
@@ -12,13 +34,13 @@ h1 {
 
 header {
   margin: 0;
-  height: 15vh; 
+  height: 10vh; 
   background-color: #fabada;
   display:flex;
 }
 
 main {
-  height: 75vh;
+  height: 80vh;
 }
 
 footer {

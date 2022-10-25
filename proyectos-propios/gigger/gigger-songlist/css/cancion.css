@@ -1,0 +1,8 @@
+.cancion {
+    text-align: center;
+    background-color: #ff007d;
+    padding:0.6rem;
+    margin: 0.6rem 20%;
+    border-radius: 15px;
+    color:white;
+}

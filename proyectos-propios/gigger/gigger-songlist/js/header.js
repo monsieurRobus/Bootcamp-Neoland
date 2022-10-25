@@ -1,8 +1,6 @@
-
-
 export const Header = () => `
     <header>
-        <h1>Testeo uno dos</h1>
+        <div class="logoG"><img src="../img/logoG.png"/></div><div></div><div></div>
     </header>
 
 `

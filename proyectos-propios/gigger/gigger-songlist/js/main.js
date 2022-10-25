@@ -1,10 +1,12 @@
 import { Footer } from './footer';
 import { Header } from './header'
-import { mainView } from './mainView';
+import { MainView } from './mainView';
 import '/css/style.css'
+import '/css/cancion.css'
+import '/css/lista.css'
 
 const app = document.querySelector('#app')
 
 app.innerHTML += Header();
-app.innerHTML += mainView();
+app.innerHTML += MainView();
 app.innerHTML += Footer();

@@ -1,7 +1,13 @@
-export const mainView = () => `
+import { ListaCanciones } from "./listaCanciones"
 
-    <main>
-        <h1>La pantalla principal</h1>
+
+
+export const MainView = () => `
+
+    <main class="lista-canciones">
+        ${ListaCanciones()}
     </main>
 
 `
+
+
