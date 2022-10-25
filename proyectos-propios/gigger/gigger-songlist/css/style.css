@@ -1,0 +1,29 @@
+body { 
+
+  margin: 0;
+
+}
+
+h1 {
+  margin:0;
+  color: crimson;
+}
+
+
+header {
+  margin: 0;
+  height: 15vh; 
+  background-color: #fabada;
+  display:flex;
+}
+
+main {
+  height: 75vh;
+}
+
+footer {
+  margin: 0;
+  height: 10vh;
+  background-color: #ff7d;
+
+}
