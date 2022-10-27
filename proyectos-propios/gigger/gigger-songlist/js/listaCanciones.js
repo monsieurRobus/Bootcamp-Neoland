@@ -45,6 +45,40 @@ const canciones = [
         id: 13,
         titulo: 'effect ball',
         grupo: 'motor lie control'
+    },
+    {
+        id: 13,
+        titulo: 'effect ball',
+        grupo: 'motor lie control'
+    },
+    {
+        id: 13,
+        titulo: 'effect ball',
+        grupo: 'motor lie control'
+    },
+    {
+        id: 13,
+        titulo: 'effect ball',
+        grupo: 'motor lie control'
+    },
+    {
+        id: 13,
+        titulo: 'effect ball',
+        grupo: 'motor lie control'
+    },
+    {
+        id: 13,
+        titulo: 'effect ball',
+        grupo: 'motor lie control'
+    },
+    {
+        id: 13,
+        titulo: 'effect ball',
+        grupo: 'motor lie control'
+    },{
+        id: 13,
+        titulo: 'effect ball',
+        grupo: 'motor lie control'
     }]
 
 for (let cancion of canciones)
