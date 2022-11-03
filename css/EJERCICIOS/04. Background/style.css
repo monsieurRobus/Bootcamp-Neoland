@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@300;400;700&display=swap");
+
+* {
+    font-family: "Anek Telugu", sans-serif;
+}
+
+h1 {
+    background-color: aquamarine;
+}
+
+p {
+}
+
+body {
+    background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+    overflow: hidden;
+}
+.content {
+    background-color: blue;
+    background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+    background-size: calc(110px * 0.9) calc(69px * 0.9);
+
+}
