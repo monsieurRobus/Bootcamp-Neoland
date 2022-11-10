@@ -1,0 +1,68 @@
+@font-face {
+    font-family: Aniron;
+    src: url(./font/aniron/aniron.ttf);
+}
+
+@font-face {
+    font-family: Ringbearer;
+    src: url(./font/ringbearer/RINGM___.TTF);
+}
+
+
+
+* { 
+    
+    margin: 0;
+
+}
+
+header {
+    font-family: Ringbearer;
+    text-align:center;
+    background-color: beige;
+    height: 10vh;
+}
+
+main {
+    font-family: Aniron;
+    background-color: beige;
+    height: 80vh;
+    
+}
+.main::-webkit-scrollbar {
+    display: none;
+}
+
+footer {
+    display: flex;
+    font-family: Aniron;
+    justify-content: flex-end;
+    background-color: beige;
+    height: 10vh;
+}
+
+.firma {
+    display: flex;
+}
+
+.entrada {
+    background: url('fondo.png');
+    margin:0.1rem;
+    border-radius:10px;
+    padding:1em;
+    width:30%;
+    float:left;
+}
+
+.entrada p {
+    font-size:0.6rem;
+}
+
+.entrada h3 {
+    display: inline-block;
+    color: #694015;
+}
+
+.entrada > button {
+    display:inline-block;
+}

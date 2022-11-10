@@ -1,4 +1,11 @@
 .lista-canciones {
-    
+    background-color: #f1f1f1;
+    width: 50vh;
+    margin: 0 auto;
     overflow: auto;
 }
+
+.lista-canciones::-webkit-scrollbar {
+    display: none;
+}
+

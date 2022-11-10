@@ -1,0 +1,41 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+@font-face {
+    font-family: breaking-bad;
+    src: url(./font/Heart\ Breaking\ Bad.otf);
+}
+body {
+    background-color: #FBFF0A;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23ced600' fill-opacity='0.19'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.19'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
+}
+h1 {
+    text-align: center;
+    font-family: breaking-bad;
+    font-size:6rem;
+    color: #565656;
+}
+
+.tarjeta {
+    text-align: center;
+    max-width: 30vw;    
+    padding:2rem;
+    margin: 0.5vh 0.5vw;
+    display: inline-block;
+    background: rgba( 246, 254, 40, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.tarjeta img {
+    text-align: center;
+    display: flex;
+    width:300px;
+    height: 300px;
+    object-fit: contain;
+    margin: 0 auto;
+}
