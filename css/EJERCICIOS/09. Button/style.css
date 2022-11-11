@@ -5,7 +5,9 @@
     height: 100vh;
 }
 
-    button {
+
+
+button {
     border-radius: 8px;
     border: none;
     background-color: #2563eb;
@@ -14,8 +16,8 @@
     padding: 16px 24px;
     text-align: center;
     transition:ease-in-out .3s;
-    }
+}
 
-    button:hover {
-        transform: scale(1.2);
-    }
+button:hover {
+    transform: scale(1.2);
+}
