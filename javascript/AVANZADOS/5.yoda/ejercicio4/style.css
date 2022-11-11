@@ -1,0 +1,51 @@
+body{
+    background-color: black;
+    
+}
+
+
+.planeta {
+    padding:1rem;
+    margin: 2rem;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: ease-in-out 0.3s;
+
+}
+
+.busqueda {
+    
+    width:10vw;
+    padding:0.5rem;
+}
+
+.planeta:hover {
+    transform: scale(1.2);
+    cursor:pointer;
+}
+
+img {
+    width:150px;
+    height: 150px;
+}
+
+h3 {
+    color: orange;
+    text-align: center;
+}
+
+
+.personaje {
+    color: white;
+    width:20%;
+    margin:1rem;
+}
+.ocultar{
+
+    display: none;
+}
