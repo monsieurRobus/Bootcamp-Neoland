@@ -1,6 +1,12 @@
+:root {
+    --ancho-tarjeta: 300px;
+    margin:0;
+}
+
 .c-characters{
     display: flex;
     flex-wrap: wrap;
+    background-color: aqua;
 }
 
 .c-characters__item{
@@ -13,4 +19,103 @@
 img{
     height: 380px;
     max-width: 100%;
+}
+
+.tarjeta {
+    background-color: transparent;
+    width: var(--ancho-tarjeta);
+    height: calc(var(--ancho-tarjeta) * 1.4); /* Calculamos la proporción de altura que debe tener la tarjeta para parecer una de magic*/
+    perspective: 1000px; 
+}
+
+.tarjeta-contenedor {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    
+}
+
+.tarjeta-frente, .tarjeta-espalda {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    
+    border-radius: 10px;
+}
+
+.tarjeta-frente {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #adceda;
+    color: black;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    width: calc(var(--ancho-tarjeta) * 0.7);
+    height:calc(var(--ancho-tarjeta) * 0.5);;
+    object-fit: contain;
+    overflow: hidden;
+    
+}
+
+.description {
+    width: calc(var(--ancho-tarjeta) * 0.85);
+    height: calc(var(--ancho-tarjeta) * 0.5);
+    overflow: hidden;
+    margin: 1rem 0 0 0;
+    padding: 0.4rem;
+    background-color: #94b2bd;
+
+}
+
+.tarjeta-espalda {
+    display: flex;
+    flex-direction: column;
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.tarjeta-espalda {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjeta-espalda > h1 {
+    display: block;
+}
+
+.tarjeta-espalda > p {
+    display: block;
+}
+
+.tarjeta-trasera-logo {
+    width:200px;
+    height:auto;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.tarjeta:hover .tarjeta-contenedor {
+    transform: rotateY(-180deg);
+}
+
+
+#portada {
+    display: flex;
+    justify-content: space-around;
 }
