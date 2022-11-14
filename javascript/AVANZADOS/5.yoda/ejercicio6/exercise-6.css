@@ -1,19 +1,56 @@
 :root {
     --ancho-tarjeta: 300px;
+    
+}
+
+
+[data-function='arena']{
+    display:flex;
+    height:75vh;
+}
+
+body {
     margin:0;
+    padding:0;
 }
 
 .c-characters{
     display: flex;
+    align-content: stretch;
+    height: 25vh; 
     flex-wrap: wrap;
     background-color: aqua;
+
 }
 
 .c-characters__item{
     width: 20%;
+    padding-bottom: 1rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
+}
+
+.c-characters__item:hover {
+    outline: 4px solid #ffdf66;
+    outline-offset: -4px;
+    transform: scale(1.2);
+    transition:  .2s;
+}
+
+.c-characters__item > h1 {
+    color:white;
+    text-shadow:1px 1px 1px black;
+}
+
+.c-characters__item > .stats {
+    width:85%;
+    height: 20%;
+    font-size: 1.4rem;
+    background-color:white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px black;
 }
 
 img{
@@ -116,6 +153,100 @@ img{
 
 
 #portada {
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    
+}
+.inicio {
+    animation: fadePortada 1s linear forwards;
+}
+
+
+
+
+#portada button {
+    background-color: #5994aa;
+    border: 0;
+    width: 200px;
+    height: 50px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+
+#portada button:active {
+    background-color: #385d6b;
+    box-shadow: 2px 2px 2px inset;
+
+}
+
+
+.modal {
+    position: fixed; 
+    background-color: #5994aaaa;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+}
+
+.modal-content {
+    background-color: rgba(0,0,0,0);
+    margin: 0 auto;
+
+    padding: 20px;
+    width: 80%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.espada-izquierda {
+    width: 200px;
+    height:auto;
+    animation: balanceo 2s ease 1s infinite reverse;
+}
+
+.espada-derecha {
+    width: 200px;
+    height:auto;
+    animation: balanceo 2s ease 1s infinite ;
+}
+
+
+
+
+#jugador-1 {
+    width: 30%;
+    background-color: crimson;
+}
+
+#centro {
+    width:40%;
+    background-color: darkorchid;
+}
+
+#jugador-2 {
+    width:30%;
+    background-color: goldenrod;
+}
+
+@keyframes balanceo {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-20deg);}
+    50% { transform: rotate(20deg);}
+    75% { transform: rotate(-10deg);}    
+    100% { transform: rotate(0deg);}
+}
+
+@keyframes fadePortada {
+
+    0% { opacity: 0;}
+    100% { opacity: 1;}
+    
 }

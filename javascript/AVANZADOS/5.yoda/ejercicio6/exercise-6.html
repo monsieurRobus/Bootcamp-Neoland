@@ -9,10 +9,25 @@
     <link rel="stylesheet" href="exercise-6.css">
 </head>
 <body>
-    <div id="portada"></div>
+    <div id="portada" class="modal inicio">
+        <div class="modal-content">
+            <img class="espada-izquierda" src="./img/espada1.png">
+            <img src="./img/fantasy-battle.png" />
+            <img class="espada-derecha" src="./img/espada2.png">
+        </div>
+        <div>
+            <button id="comienza-juego">¡Jugar!</button>
+        </div>
+    </div>
     
-    <div class="c-characters" data-function="characters"></div>
-    <div data-function="arena"></div>
+    <div class="c-characters" data-function="characters">
+
+    </div>
+    <div data-function="arena">        
+        <div id="jugador-1"></div>
+        <div id="centro"></div>
+        <div id="jugador-2"></div>
+    </div>
     
 </body>
 </html>
