@@ -5,18 +5,17 @@ const portadaJuego = document.querySelector("#portada")
 
 
 
-let jugador1 = {};
-let jugador2 = {};
+let jugador1;
+let jugador2;
 let personajes;
 
 const getCharacters = async(url) => {
     let listaPersonajes;
     await fetch(url).then(res => res.json()) 
-        .then(res => listaPersonajes=res)
+        .then(res=>listaPersonajes=res)
         .then(res=>pintaCharacters(res))
 
     return listaPersonajes
-
 }
 
 const pintaCharacters = async(personajes) => {
@@ -55,6 +54,7 @@ const seleccionaPersonaje = (e) => {
     if(jugador1 === undefined)
         {
             pintaJugador(jugador,1)
+            console.log(personajes.filter((personaje)=>personaje.name === jugador))
         }
     else    
         {
