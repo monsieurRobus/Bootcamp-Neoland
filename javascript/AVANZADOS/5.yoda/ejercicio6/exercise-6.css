@@ -1,5 +1,5 @@
 :root {
-    --ancho-tarjeta: 300px;
+    --ancho-tarjeta: 25vw;
     
 }
 
@@ -20,6 +20,7 @@ body {
     height: 25vh; 
     flex-wrap: wrap;
     background-color: aqua;
+    z-index: 999;
 
 }
 
@@ -40,14 +41,14 @@ body {
 }
 
 .seleccionado-jugador1 {
-    outline: 3px solid #ff007d;
+    outline: 3px solid #2200ff;
     outline-offset: -4px;
     transform: scale(1.2);
 
 }
 
 .seleccionado-jugador2 {
-    outline: 3px solid #2200ff;
+    outline: 3px solid #ff007d;
     outline-offset: -4px;
     transform: scale(1.2);
 
@@ -58,7 +59,23 @@ body {
     text-shadow:1px 1px 1px black;
 }
 
-.c-characters__item > .stats {
+.desaparece {
+    transform: translateY(-300px);
+    animation: desaparece 0.4s ease-in-out;
+    
+}
+
+.aparece {
+    transform: translateY(0px);
+    animation: desaparece 0.4s reverse;
+}
+@keyframes desaparece {
+    from {transform:translateY(0px)}
+    to {transform:translateY(-300px)}
+}
+
+
+.stats {
     width:85%;
     height: 20%;
     font-size: 1.4rem;
@@ -77,6 +94,22 @@ img{
     width: var(--ancho-tarjeta);
     height: calc(var(--ancho-tarjeta) * 1.4); /* Calculamos la proporción de altura que debe tener la tarjeta para parecer una de magic*/
     perspective: 1000px; 
+    transform: translateY(800px);
+}
+
+.entrada {
+    transform:translateY(0px);
+    animation: entrada 0.6s ease-in-out;
+}
+
+.salida {
+    transform:translateY(800px);
+    animation: salida 0.6s reverse;
+}
+
+@keyframes entrada {
+    from {transform:translateY(800px)}
+    to {transform:translateY(0px)}
 }
 
 .tarjeta-contenedor {
@@ -89,7 +122,7 @@ img{
     
 }
 
-.tarjeta-frente, .tarjeta-espalda {
+.tarjeta-frente, .tarjeta-espalda1, .tarjeta-espalda2 {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -105,6 +138,7 @@ img{
     align-items: center;
     background-color: #adceda;
     color: black;
+    justify-content: flex-end;
 }
 
 .stats {
@@ -133,7 +167,14 @@ img{
 
 }
 
-.tarjeta-espalda {
+.tarjeta-espalda1,.tarjeta-espalda2 {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.tarjeta-espalda1 {
     display: flex;
     flex-direction: column;
     background-color: dodgerblue;
@@ -141,11 +182,15 @@ img{
     transform: rotateY(180deg);
 }
 
-.tarjeta-espalda {
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+.tarjeta-espalda2 {
+    display: flex;
+    flex-direction: column;
+    background-color: crimson;
+    color: white;
+    transform: rotateY(-180deg);
 }
+
+
 
 .tarjeta-espalda > h1 {
     display: block;
@@ -241,17 +286,36 @@ img{
 
 #jugador-1 {
     width: 30%;
-    background-color: crimson;
+    
 }
 
 #centro {
     width:40%;
-    background-color: darkorchid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:1rem;
+    
 }
+
+#centro > span {
+    display: block;
+    font-size: 3rem;
+    color:crimson;
+}
+
+#centro > span.danio-total {
+    position:fixed;
+
+    font-size: 8rem;
+    color: fuchsia;
+}
+
 
 #jugador-2 {
     width:30%;
-    background-color: goldenrod;
+    
 }
 
 @keyframes balanceo {
