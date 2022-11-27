@@ -1,12 +1,13 @@
 :root {
     --ancho-tarjeta: 25vw;
-    
 }
 
 
 [data-function='arena']{
     display:flex;
-    height:75vh;
+    height: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 body {
@@ -61,24 +62,36 @@ body {
 
 .desaparece {
     transform: translateY(-300px);
-    animation: desaparece 0.4s ease-in-out;
+    animation: fuera-dentro 0.4s forwards;
     
 }
 
 .aparece {
     transform: translateY(0px);
-    animation: desaparece 0.4s reverse;
+    animation: fuera-dentro 0.4s reverse;
 }
-@keyframes desaparece {
-    from {transform:translateY(0px)}
-    to {transform:translateY(-300px)}
+@keyframes fuera-dentro {
+    from {transform:translateY(0px); height:25vh}
+    to {transform:translateY(-300px); height:0}
+}
+
+.arena-juego {
+    animation: menu-juego 0.4s forwards
+}
+
+.arena-menu {
+    animation: menu-juego 0.4s reverse
+}
+@keyframes menu-juego {
+    from {height:75vh}
+    to {height:100vh}
 }
 
 
 .stats {
     width:85%;
-    height: 20%;
-    font-size: 1.4rem;
+    height: 10%;
+    font-size: 1rem;
     background-color:white;
     border-radius: 10px;
     box-shadow: 2px 2px 1px black;
@@ -91,6 +104,7 @@ img{
 
 .tarjeta {
     background-color: transparent;
+    max-height: 400px;
     width: var(--ancho-tarjeta);
     height: calc(var(--ancho-tarjeta) * 1.4); /* Calculamos la proporción de altura que debe tener la tarjeta para parecer una de magic*/
     perspective: 1000px; 
@@ -240,6 +254,23 @@ img{
 
 }
 
+#ataca-jugador1,#ataca-jugador2 {
+    border: 0;
+    width: 200px;
+    height: 50px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+#ataca-jugador1 {
+    
+    background-color: #5994aa;
+}
+
+#ataca-jugador2{
+    
+    background-color: crimson;
+}
 
 .modal {
     
@@ -284,14 +315,19 @@ img{
 
 
 
-#jugador-1 {
+#jugador-1,#jugador-2 {
+    display: flex;
     width: 30%;
+    height:100%;
+    align-items: center;
+    justify-content: center;
     
 }
 
 #centro {
     width:40%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -299,10 +335,10 @@ img{
     
 }
 
+
 #centro > span {
     display: block;
     font-size: 3rem;
-    color:crimson;
 }
 
 #centro > span.danio-total {
@@ -313,9 +349,60 @@ img{
 }
 
 
-#jugador-2 {
-    width:30%;
-    
+
+
+.golpe-dado{
+    width:50px;
+    height: 50px;
+    background-size:contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* CLASES DE LOS GOLPES DE LOS DADOS */
+.normal {
+    color:black;
+    font-size: 1rem;
+}
+
+.critico {
+    color:#f00;
+    font-size:2rem;
+    text-shadow: 1px 1px 2px #aa0000;
+}
+
+.titulo-dado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contenedor-dados {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.golpe-vitalidad {
+    animation: golpe 1.2s linear; 
+}
+
+.golpe-defensa {
+    animation: defensa 1.2s linear;
+}
+
+@keyframes golpe {
+    0% { color: #f00; font-size:1.8rem;}
+    100% { color: black;font-size:1rem;}
+}
+
+@keyframes defensa {
+    0% { color: rgb(29, 153, 255); font-size:1.8rem;}
+    100% { color: black;font-size:1rem;}
 }
 
 @keyframes balanceo {
@@ -331,4 +418,18 @@ img{
     0% { opacity: 0;}
     100% { opacity: 1;}
     
+}
+
+#rotulo-jugador-1 {
+    font-size:3rem;
+    color:blue;
+}
+
+#rotulo-jugador-2 {
+    font-size:3rem;
+    color:crimson;
+}
+
+.turno {
+    background-color: #ffdf66;
 }
