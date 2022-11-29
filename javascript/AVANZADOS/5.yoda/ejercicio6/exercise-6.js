@@ -101,7 +101,7 @@ const quitaVida = (danio,jugador) => {
 
     let jugadorDestinoIndex;
     let vidaJugadorDestino = document.querySelector(`#vitalidad-jugador${jugador}`).innerHTML
-   
+
     let defensaJugadorDestino = document.querySelector(`#defensa-jugador${jugador}`).innerHTML
     let jugadorOrigenIndex;
     switch (jugador) {
@@ -117,7 +117,6 @@ const quitaVida = (danio,jugador) => {
             break;
     }
     danio-=defensaJugadorDestino
-    console.log(danio)
      // ME ESTA HACIENDO ALGO RARO EL DAÑO
     vidaJugadorDestino-=danio; // Al daño causado le restamos la defensa del jugador que recibe el impacto
     console.log(vidaJugadorDestino)
@@ -143,20 +142,32 @@ const quitaVida = (danio,jugador) => {
 }
 
 // ¡Hurra! ¡Has ganado la partida!
+const ganadorPartida = (jugador) => {
+    
+    divJugador1.children[0].classList.remove('turno')
+    divJugador2.children[0].classList.remove('turno')
+    divJugador1.children[0].classList.remove('entrada')
+    divJugador1.children[0].classList.add('salida')
+    centroJuego.innerHTML=''
+    divJugador2.children[0].classList.remove('entrada')
+    divJugador2.children[0].classList.add('salida')
 
-const ganadorPartida = (index,jugador) => {
+    setTimeout(()=>{
+        divJugador1.innerHTML=''
+        divJugador2.innerHTML=''
+    },800)
 
-    portadaJuego.innerHTML==`
-    <div class="modal-content">
+    portadaJuego.innerHTML=`
+    <div class="modal-content victoria">
         <h1>¡¡ENHORABUENA!!</h1>
+        <h2 id="rotulo-jugador-${jugador}">Jugador ${jugador}</h2>
         <figure class="tarjeta entrada">
             <div class="tarjeta-contenedor">
-                <div style="background-image: url('${jugador[0].avatar}'); background-size:cover" class="tarjeta-frente">
-                    <div class="stats"><span>⚔️${jugador[0].critic}</span><span id="defensa-jugador1">🛡️${jugador[0].defense}</span><span id="vitalidad-jugador1">💓${jugador[0].vitality}</span></div>
+                <div style="background-image: url('${jugador===1?jugador1[0].avatar:jugador2[0].avatar}'); background-size:cover" class="tarjeta-frente">
                 </div>
                 <div class="tarjeta-espalda1">
-                    <img class="tarjeta-trasera-logo" src="./img/trasera-tarjeta.png" />
-                    <h1>${jugador[0].name}</h1>                                                                   
+                    <h1>¿Jugar de nuevo?</h1>
+                    <button onclick="restart()">Alright!</button>                                                              
                 </div>
             </div>
         </figure>
@@ -205,10 +216,7 @@ const hitSounds = () => {
         default:
             break;
     }
-
-
 }
-
 
 const getCharacters = async(url) => {
     let listaPersonajes;
@@ -243,7 +251,6 @@ botonJugar.addEventListener('click',(b) => {
     portadaJuego.classList.add('modal-ocultar') 
     centroJuego.innerHTML+=`<h1>Escoge tu personaje...</h1><h2 id="rotulo-jugador-1">Jugador1</h2>`
 })
-
 
 const seleccionaPersonaje = (e) => {
     let inicioJuego;
@@ -280,9 +287,6 @@ const seleccionaPersonaje = (e) => {
                         setTimeout(()=> {
                             comienzaJuego()
                         },3000)
-
-
-
 
                     }
                 
@@ -336,7 +340,6 @@ const pintaJugador = async(jugador,numero) => {
 
 }
 
-
 const comienzaJuego = () => {
 
     const rotuloComienza =`<h1>Comienza...</h1>`
@@ -352,7 +355,7 @@ const comienzaJuego = () => {
 
     setTimeout(()=>{
         clearInterval(intermitenciaRotulo)
-        centroJuego.innerHTML= rotuloComienza ;
+        centroJuego.innerHTML= rotuloComienza
         
         switch(resultadoSeleccion) {
             case 1:
@@ -368,16 +371,12 @@ const comienzaJuego = () => {
         setTimeout(()=>{
 
             centroJuego.innerHTML=``
-            turnoDeJugador(resultadoSeleccion)
-    
-    
+            turnoDeJugador(resultadoSeleccion)  
     
         },2000)
 
     },2000)
-
     
-
 }
 
 const turnoDeJugador = (jugador) => {

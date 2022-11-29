@@ -112,18 +112,21 @@ img{
 }
 
 .entrada {
-    transform:translateY(0px);
-    animation: entrada 0.6s ease-in-out;
+    animation: entrada 0.6s forwards;
 }
 
 .salida {
-    transform:translateY(800px);
-    animation: salida 0.6s reverse;
+    animation: salida 0.6s forwards;
 }
 
 @keyframes entrada {
     from {transform:translateY(800px)}
     to {transform:translateY(0px)}
+}
+
+@keyframes salida {
+    from {transform:translateY(0px)}
+    to {transform:translateY(800px)}
 }
 
 .tarjeta-contenedor {
@@ -219,7 +222,12 @@ img{
     height:auto;
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
+.victoria {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ANIMACION DAR LA VUELTA */
 .tarjeta:hover .tarjeta-contenedor {
     transform: rotateY(-180deg);
 }
@@ -322,6 +330,7 @@ img{
     align-items: center;
     justify-content: center;
     
+    
 }
 
 #centro {
@@ -421,11 +430,13 @@ img{
 }
 
 #rotulo-jugador-1 {
+    margin:0;
     font-size:3rem;
     color:blue;
 }
 
 #rotulo-jugador-2 {
+    margin:0;
     font-size:3rem;
     color:crimson;
 }
