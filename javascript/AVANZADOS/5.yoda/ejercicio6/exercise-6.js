@@ -14,6 +14,16 @@ const divJugador2 = document.querySelector('#jugador-2')
 // Pregunta a profes: inserto un botón de forma dinámica, ¿es mejor añadir el evento click desde un addEventListener o directamente al dibujar el elemento en el DOM?
 // O Inglés o Español, pero nunca mezclar los dos
 
+const getCharacters = async(url) => {
+    let listaPersonajes;
+    await fetch(url).then(res => res.json()) 
+        .then(res=>personajes=res)
+        .then(res=>pintaCharacters(res))
+
+}
+
+getCharacters(urlCharacters)
+
 let jugador1;
 let jugador2;
 let personajes = [];
@@ -28,7 +38,7 @@ const tiradasDados = (tiradas,jugador,puntosCritico) => {
     let siguienteJugador=1
     let claseCritico
     let multiplicador=1       
-    console.log(puntosCritico) 
+
     // CALCULO DEL DAÑO REALIZADO POR EL JUGADOR
             for (tirada of tiradas) {
                 tirada=tirada.split('d')
@@ -116,13 +126,18 @@ const quitaVida = (danio,jugador) => {
                 jugadorDestinoIndex=jugador
             break;
     }
-    danio-=defensaJugadorDestino
+
+    // SI EL DAÑO ES MENOR QUE LA DEFENSA, EL DAÑO SERÁ IGUAL A CERO
+    if((danio-defensaJugadorDestino)>0)
+        danio-=defensaJugadorDestino
+    else
+        danio=0
+
      // ME ESTA HACIENDO ALGO RARO EL DAÑO
     vidaJugadorDestino-=danio; // Al daño causado le restamos la defensa del jugador que recibe el impacto
-    console.log(vidaJugadorDestino)
+
     if(vidaJugadorDestino<=0)
         {
-            console.log(`Ha ganado ${jugadorOrigenIndex}`)
             clearTimeout(siguienteTurno)
             ganadorPartida(jugadorOrigenIndex)
         }
@@ -218,14 +233,6 @@ const hitSounds = () => {
     }
 }
 
-const getCharacters = async(url) => {
-    let listaPersonajes;
-    await fetch(url).then(res => res.json()) 
-        .then(res=>personajes=res)
-        .then(res=>pintaCharacters(res))
-
-}
-
 const pintaCharacters = (personajes) => {
 
     for  (personaje of personajes)
@@ -243,7 +250,6 @@ const pintaCharacters = (personajes) => {
         }
 }
 
-getCharacters(urlCharacters)
 
 botonJugar.addEventListener('click',(b) => {
     jugarSFX.play()
@@ -392,5 +398,19 @@ const turnoDeJugador = (jugador) => {
             break;
     }
     centroJuego.innerHTML=`<button id="ataca-jugador${jugador}" onclick="tiradasDados(jugador${jugador}[0].damage,${jugador},jugador${jugador}[0].critic)">Jugador ${jugador} ¡Ataca!</button>`
+
+}
+
+const restart = () => {
+    jugador1=undefined
+    jugador2=undefined
+    characterSelect.classList.remove('desaparece')
+    divJugador1.classList.remove('turno')
+    divJugador2.classList.remove('turno')
+    divJugador1.innerHTML=``
+    divJugador2.innerHTML=``
+    portadaJuego.classList.remove('inicio')
+    portadaJuego.classList.remove('victoria')
+    portadaJuego.classList.add('modal-ocultar') 
 
 }
