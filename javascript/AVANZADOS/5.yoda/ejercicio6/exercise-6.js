@@ -22,6 +22,25 @@ const getCharacters = async(url) => {
 
 }
 
+
+const pintaCharacters = (personajes) => {
+
+    for  (personaje of personajes)
+        {
+            
+            const div = document.createElement("div")
+            div.id=`${personaje.name}`
+            div.innerHTML=`<h1>${personaje.name}</h1><div class="stats"><span>⚔️${personaje.critic}</span><span>🛡️${personaje.defense}</span><span>💓${personaje.vitality}</span></div>`
+            div.classList.add('c-characters__item')
+            div.style.backgroundImage=`url("${personaje.avatar}")`
+            div.style.backgroundSize="cover";
+            characterSelect.appendChild(div)
+            div.addEventListener('click',seleccionaPersonaje)
+
+        }
+}
+
+
 getCharacters(urlCharacters)
 
 let jugador1;
@@ -233,22 +252,6 @@ const hitSounds = () => {
     }
 }
 
-const pintaCharacters = (personajes) => {
-
-    for  (personaje of personajes)
-        {
-            
-            const div = document.createElement("div")
-            div.id=`${personaje.name}`
-            div.innerHTML=`<h1>${personaje.name}</h1><div class="stats"><span>⚔️${personaje.critic}</span><span>🛡️${personaje.defense}</span><span>💓${personaje.vitality}</span></div>`
-            div.classList.add('c-characters__item')
-            div.style.backgroundImage=`url("${personaje.avatar}")`
-            div.style.backgroundSize="cover";
-            characterSelect.appendChild(div)
-            div.addEventListener('click',seleccionaPersonaje)
-
-        }
-}
 
 
 botonJugar.addEventListener('click',(b) => {
