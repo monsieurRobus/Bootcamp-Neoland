@@ -9,7 +9,7 @@ let preguntasJuego = []
 let puntos = 0
 
 const getQuestions = async() => {
-
+    puntos=0
     await fetch(urlTrivia+`${numeroPreguntas.value}`)
         .then(res => res.json())
         .then(res => drawQuestions(res.results))        
@@ -86,10 +86,19 @@ const checkGameAnswers = () => {
         if(seleccionPregunta === respuestaCorrecta)
             puntos+=1
         }
-    
-    console.log(puntos)
+        
+    drawResults(puntos)
+}
 
-    
+
+const drawResults = (cantidad) => {
+
+    gameBoard.innerHTML=`
+    <div class="score">
+        <h2>Your score is:</h2>
+        <h3>${cantidad}</h3>
+    </div>
+    `
 }
 
 startGame.addEventListener('click',getQuestions)
