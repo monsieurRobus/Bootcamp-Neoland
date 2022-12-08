@@ -46,8 +46,12 @@ transform-style: preserve-3d;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.selected .card-content {
+.success .card-content, .selected .card-content {
 transform: rotateY(180deg);
+}
+
+.success {
+    box-shadow: 0 4px 8px 0 rgb(60, 255, 60), 0 6px 20px 0 rgb(162, 255, 146);
 }
 
 /* Position the front and back side */

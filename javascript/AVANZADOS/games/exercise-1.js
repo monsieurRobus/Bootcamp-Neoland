@@ -62,8 +62,8 @@ let cardArray = [
 ]
 
 const gridCards = document.querySelector("[data-function='grid']")
-const score = document.querySelector("[data-function='score']")
-const attemps = document.querySelector("[data-function='attempts']")
+let score = document.querySelector("[data-function='score']")
+let attemps = document.querySelector("[data-function='attempts']")
 let card1;
 let card2;
 
@@ -74,7 +74,7 @@ const startGame = () => {
         <figure id="${carta.id}" class="card" data-function="${carta.name}">
             <div class="card-content">
                 <div class="card-front">
-                a    
+                    <img src="public/exercise-1/universe.svg" />
                 </div>
                 <div class="card-back">
                     <img src="${carta.img}"/>
@@ -92,11 +92,22 @@ const addEventListeners = () => {
         card.addEventListener("click",selectCard,true) // Uso de useCapture - Duda
 }    
 
+const removeEventListeners = () => {
+
+    const cards = document.querySelectorAll(".card")
+    for (card of cards)
+        card.removeEventListener("click",selectCard,true)
+}
+
 const selectCard = (e) => {
     
     let cardElement = e.target
-    console.log(card1)
-    console.log(card2)
+
+    if(e.target.tagName ==="IMG")
+        cardElement=cardElement.parentElement
+
+    
+    
     if(card1===undefined)
         {
             card1={
@@ -114,13 +125,12 @@ const selectCard = (e) => {
             isCorrectSelection(card1,card2)
         }
 
-
     // Damos la vuelta a la tarjeta
     
 
     if(cardElement.classList.contains('card-content'))
         cardElement.parentElement.classList.add("selected")
-
+    
     if(cardElement.classList.contains('card-front'))
         cardElement.parentElement.parentElement.classList.add("selected")
 
@@ -132,11 +142,42 @@ const selectCard = (e) => {
 
 const isCorrectSelection = (firstSelection,secondSelection) => {
 
+
+    removeEventListeners()
+
+
+    setTimeout(()=>{
+
+        attemps.innerHTML++
+
+    },1000)
+
     if(firstSelection.id === secondSelection.id)
-        console.log("Es la misma tarjeta")
+        setTimeout(()=>{
+            wrongSound()
+            resetCards()
+            addEventListeners()
+
+        },1000)
     
     else if(firstSelection.name === secondSelection.name)
-        console.log("DE PUTA MADRE BRO")
+        setTimeout(()=>{
+            succesSound()
+            successCards()
+            addEventListeners()
+            score.innerHTML++
+            isGameFinished()
+
+        },1000)    
+    else
+    {
+        setTimeout(()=>{
+                wrongSound()
+                resetCards()
+                addEventListeners()
+            
+        },1000)                
+    }
 
 }
 
@@ -147,6 +188,52 @@ const resetCards = () => {
     card2=undefined
     for (card of cards)
         card.classList.remove("selected")
+}
+
+const successCards = () => {
+    const cards = document.querySelectorAll(".selected")
+    for (card of cards)
+        {
+            card.classList.remove("selected")
+            card.classList.add("success")
+            card.querySelector(".card-back").querySelector("img").src="public/exercise-1/tick.svg"
+        }
+
+    card1=undefined
+    card2=undefined
+}
+
+const succesSound = () => {
+    const successSnd = new Audio("./public/exercise-1/sound/acierto.wav")
+    successSnd.play()
+    
+
+}
+
+const wrongSound = () => {
+    const wrongSnd = new Audio("./public/exercise-1/sound/nope.wav")
+    wrongSnd.play()
+
+    setTimeout(() => {
+        wrongSnd.play()
+    },250)
+}
+
+const isGameFinished = () => {
+
+    const cards = document.querySelectorAll(".card")
+    const successes = document.querySelectorAll(".success")
+
+    console.log(successes.length)
+
+    if(cards.length === successes.length)
+        {
+            for(card of cards)
+                party.confetti(card)
+            
+        }
+
+
 }
 
 startGame()

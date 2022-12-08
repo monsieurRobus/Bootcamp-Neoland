@@ -30,32 +30,19 @@ const addOptionsToColorPicker = () => {
 
 const addEventListenersToColorPicker = () => {
 
-  colorPicker.addEventListener("change", e => {
-
-    document.body.style.backgroundColor=e.target.value
-    const colorTitleContent = `${COLOR_PALETTE[e.target.value]} - ${e.target.value}` 
-    
-    colorTitle.innerHTML = COLOR_PALETTE[e.target.value] ? colorTitleContent : '-'
-  })
-
-
-
   const actualizaInputColor = (e) => {
 
-      document.body.style.backgroundColor=e.target.value
-      const colorTitleContent = `${COLOR_PALETTE[e.target.value]} - ${e.target.value}`
-      console.log(COLOR_PALETTE[e.target.value]) 
-      
-      inputColor.innerHTML = COLOR_PALETTE[e.target.value] ? colorTitleContent : `${e.target.value}`
-    
-  }
-
-  
-  inputColor.addEventListener("change", actualizaInputColor , false)
-  inputColor.addEventListener("input", actualizaInputColor , false)
+    document.body.style.backgroundColor=e.target.value
+    const colorTitleContent = `${COLOR_PALETTE[e.target.value]} - ${e.target.value}`
+    colorTitle.innerHTML = COLOR_PALETTE[e.target.value] ? colorTitleContent : `${e.target.value}`
 
 }
 
+  colorPicker.addEventListener("change", actualizaInputColor)
+  inputColor.addEventListener("input", actualizaInputColor)
+
+
+}
 addOptionsToColorPicker()
 addEventListenersToColorPicker()
 
