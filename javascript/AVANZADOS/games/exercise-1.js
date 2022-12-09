@@ -230,10 +230,29 @@ const isGameFinished = () => {
         {
             for(card of cards)
                 party.confetti(card)
+
+            setTimeout(()=>{
+                modalGameOver()
+            },500)
             
         }
 
+  
 
+
+}
+
+const modalGameOver = () => {
+    document.querySelector("body").innerHTML+=`
+    <div class="modal modal-show">
+        <div class="modal-content">
+            <h3>Congratulaciones!</h3>
+            <h3 class="score">${attemps.innerHTML}</h3>
+            <h4>${attemps.innerHTML > 6 ? '¡Vamos, seguro que puedes mejorarlo!' : '¡Perfecto! ¡Enhorabuena!'}</h4>
+        </div>
+        
+        </div>
+  </body>`
 }
 
 startGame()
