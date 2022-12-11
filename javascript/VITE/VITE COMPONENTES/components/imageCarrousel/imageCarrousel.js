@@ -23,6 +23,7 @@ let visibleImg = 0
 const runImg = (direction=true) => {
     const imageCarouselDiv = document.querySelector('#img-container')
     
+    visibleImg++   
     if(direction)
         { 
             if (visibleImg>imageCarouselDiv.children.length-1)
@@ -39,12 +40,12 @@ const runImg = (direction=true) => {
 }
 
 const moveImg = (carrousel,nextIndex) => {
+
     carrousel.style.transform=`translateX(${-500*nextIndex}px)`
 }
 
 const setCarouselInterval = () => {
     interval = setInterval(()=> {
-            visibleImg++    
             runImg(true)    
         },2000)
 }
