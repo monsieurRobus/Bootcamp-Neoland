@@ -25,7 +25,8 @@ function fitsInOneBox(boxes) {
         let compareWidth = (a.w-b.w)<0
         let compareHeigth = (a.h-b.h)<0
 
-        
+        if(compareLength || compareWidth || compareHeigth)
+            return -1
         
     }   
         
@@ -35,4 +36,5 @@ function fitsInOneBox(boxes) {
 
     return result
 }
-console.log(fitsInOneBox(boxes1))
+
+console.log(false  && false && false)
