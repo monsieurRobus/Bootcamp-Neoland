@@ -34,6 +34,7 @@ const invalidUsername = () => {
         message.remove()
 
     document.querySelector("main").innerHTML+=`<h2 class="warning" id="invalid-username-message">Usuario no válido</h2>`
+    addLoginEventListeners()
 }
 
 const storeUsername = (username) =>{

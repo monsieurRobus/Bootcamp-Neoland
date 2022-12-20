@@ -1,4 +1,5 @@
 import { logOut } from "../pages/Login/Login"
+import { changeBackground } from "../utils/utils"
 import { Button } from "./button"
 import { Title } from "./title"
 

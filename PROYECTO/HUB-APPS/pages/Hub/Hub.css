@@ -1,0 +1,11 @@
+#hub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contenedor-apps {
+    background-color: aquamarine;
+    width:50vw;
+    height:40vh;
+}
