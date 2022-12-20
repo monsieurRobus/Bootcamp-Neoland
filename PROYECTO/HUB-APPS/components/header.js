@@ -1,3 +1,4 @@
+import { logOut } from "../pages/Login/Login"
 import { Button } from "./button"
 import { Title } from "./title"
 
@@ -8,3 +9,23 @@ export const Header = () => `
         ${Button('Log Out','logout')}
     </header>
 `
+
+
+export const addHeaderEventListeners = () => {
+    
+    const header = document.querySelector("header")
+    const buttons = header.querySelectorAll("button")
+
+for (let button of buttons)
+    {
+    switch(button.id) {
+        case 'change-color':
+            button.addEventListener('click', ()=>{changeBackground()})
+        break;
+        case 'logout':
+            button.addEventListener('click', ()=>{logOut()})
+        break;
+    }
+    }
+
+}
