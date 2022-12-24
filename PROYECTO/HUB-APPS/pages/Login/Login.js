@@ -1,16 +1,11 @@
-import { navigateTo } from '../../utils/utils'
+import { initContent } from '../../main'
+import { writeUserName } from '../../utils/utils'
+
 import './Login.css'
 
 const pageStorage = window.localStorage
 
-export const Login = () => `
-<section id="login">
-    <h2>¡Hola! uwu</h2>
-    <h3>¿Cómo te llamas?🤔</h3>
-    <div>
-        <input id="nameLogin" ></input><button>➡️</button>
-    </div>
-</section>`
+
 
 export const addLoginEventListeners = () => {
 
@@ -23,7 +18,7 @@ export const addLoginEventListeners = () => {
 export const userLogin = () => {
 
     const user = document.querySelector('#nameLogin')
-    user.value == '' ? invalidUsername() :  storeUsername(user.value) 
+    user.value == '' ? invalidUsername() :  loginSuccess(user.value) 
 
 }
 
@@ -37,18 +32,35 @@ const invalidUsername = () => {
     addLoginEventListeners()
 }
 
-const storeUsername = (username) =>{
+const loginSuccess = (username) =>{
+
+    const logoutButton = document.querySelector("#logout")
     const loginElement = document.querySelector("#login")
     pageStorage.setItem('user',username)
-    navigateTo("hub")
+    const name = document.querySelector("#user-name")
+    name.innerHTML = writeUserName()    
+    initContent("hub")
     loginElement.remove()
+    logoutButton.classList.remove('oculto')
 
 }
 
 export const logOut = () => {
 
+    const logoutButton = document.querySelector("#logout")
     const main = document.querySelector("main")
-    navigateTo("login")
+    const userName = document.querySelector("#user-name")
+    initContent(undefined)
     pageStorage.removeItem('user')
-
+    userName.innerHTML = ''
+    logoutButton.classList.add('oculto')
 }
+
+export const printTemplate = () => `
+<section id="login">
+    <h2>¡Hola! uwu</h2>
+    <h3>¿Cómo te llamas?🤔</h3>
+    <div>
+        <input id="nameLogin" ></input><button>➡️</button>
+    </div>
+</section>`

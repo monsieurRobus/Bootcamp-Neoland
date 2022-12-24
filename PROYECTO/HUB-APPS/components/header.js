@@ -1,13 +1,12 @@
 import { logOut } from "../pages/Login/Login"
 import { changeBackground } from "../utils/utils"
 import { Button } from "./button"
-import { Title } from "./title"
 
 export const Header = () => `
     <header>
-        ${Title()}
-        ${Button('Coloreame!',"change-color")}
-        ${Button('Log Out','logout')}
+        <div>${Button('Coloreame!',"change-color")}</div>
+        <div id="user-name"></div>
+        <div >${Button('Log Out','logout')}</div>                
     </header>
 `
 

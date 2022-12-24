@@ -1,19 +1,48 @@
 import './css/style.css'
 import { addHeaderEventListeners, Header } from './components/header'
-import { changeBackground } from './utils/utils'
 import { Footer } from './components/footer'
-import { Hub } from './pages/Hub/Hub'
-import { addLoginEventListeners, Login } from './pages/Login/Login'
+import { addCardEventListeners, printTemplate as printHubTemplate } from './pages/Hub/Hub'
+import { addLoginEventListeners, printTemplate as printLoginTemplate } from './pages/Login/Login'
+import { whackAMole as printWhackAMoleTemplate, addWhackEventListeners } from './components/whackAMole/whackAMole'
+
 
 document.querySelector('#app').innerHTML = `
   ${Header()}
   <main>
-    ${Login()}
   </main>
   ${Footer()}
 `
 
+export const initContent = (navigation) => {
+  const main = document.querySelector("main")
+  switch(navigation) 
+  {
+      case "whackAMole":
+          main.innerHTML = printWhackAMoleTemplate()
+          addWhackEventListeners()
+          console.log("test")
+        break;
+      case "pokeApi":
+          main.innerHTML = printPokeApiTemplate()
+        break;
+      case "tictactoe":
+          main.innerHTML = printTicTacToe()
+        break;
+      case "hub":
+          main.innerHTML = printHubTemplate()
+          addCardEventListeners()
+        break;
+      case undefined:
+          main.innerHTML = printLoginTemplate()
+          addLoginEventListeners()
+          
+        break;
+      
+  }
+
+}
+
 // AQUI METEMOS TB EVENT LISTENERS Y ROUTEO
 
 addHeaderEventListeners()
-addLoginEventListeners()
+initContent(undefined)

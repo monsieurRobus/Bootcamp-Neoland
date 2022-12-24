@@ -1,0 +1,30 @@
+
+#wack-a-mole {
+    width: 80vw;
+    height: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:2rem;
+}
+
+
+
+#tablero-whack-a-mole {
+
+    display:grid;
+    width: 60vw;
+    height: 60vh;
+    grid-template-columns: auto auto auto;
+
+}
+
+.celda {
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:black;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
