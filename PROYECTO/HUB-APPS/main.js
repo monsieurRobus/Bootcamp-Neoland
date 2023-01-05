@@ -4,6 +4,7 @@ import { Footer } from './components/footer'
 import { addCardEventListeners, printTemplate as printHubTemplate } from './pages/Hub/Hub'
 import { addLoginEventListeners, printTemplate as printLoginTemplate } from './pages/Login/Login'
 import { whackAMole as printWhackAMoleTemplate, addWhackEventListeners } from './components/whackAMole/whackAMole'
+import { ticTacToe as printTicTacToe, addTicTacToeListeners } from './components/ticTacToe/ticTacToe'
 
 
 document.querySelector('#app').innerHTML = `
@@ -25,7 +26,7 @@ export const initContent = (navigation) => {
       case "pokeApi":
           main.innerHTML = printPokeApiTemplate()
         break;
-      case "tictactoe":
+      case "ticTacToe":
           main.innerHTML = printTicTacToe()
         break;
       case "hub":
