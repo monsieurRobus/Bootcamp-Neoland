@@ -28,6 +28,7 @@ export const initContent = (navigation) => {
         break;
       case "ticTacToe":
           main.innerHTML = printTicTacToe()
+          addTicTacToeListeners()
         break;
       case "hub":
           main.innerHTML = printHubTemplate()

@@ -15,3 +15,18 @@
     text-align: center;
     line-height: 100px;
   }
+
+  .cell-content {
+    display:none;
+  }
+
+  .cell:hover .cell-content {
+    display:block;
+    opacity:0.5;
+
+  }
+
+  .active .cell-content{
+    display:block;
+    opacity:1;
+  }
