@@ -2,21 +2,37 @@ import { initContent } from '../../main'
 import { Button } from '../button'
 import './ticTaeToe.css'
 
-let gameRunning = false
+let canSelect = false
 
-const startGame = () => {
-    alert("Empezamos Juego!")
-    const turnOf = Math.floor(Math.random())
+const gameTurn = (player) => {
+
+    (player === undefined) ? 
+        setupGame() :
+        nextTurn(player)
+
+}
+
+const setupGame = () => {
+    addTicTacToeGameListeners()
+    alert("Empezamos juego!")
+    const turnOf = Math.floor(Math.random()*2)
     turnOf == 0 ? // 0 => Player, 1 => Computer
         playerMovement()
         :
         computerMovement()
 }
 
+const nextTurn = (player) => {
+    (player==="player") ?
+        playerMovement() :
+        computerMovement()
+}
+
 const playerMovement = () => {
     const headerTicTacToe = document.querySelector("#header-tic-tac-toe")
     headerTicTacToe.innerHTML="<h3><span class='player'>PLAYER</span> TURN</h3>"
-    addTicTacToeListeners()
+    canSelect = true
+    
 }
 
 const gameCheck = (player) => {
@@ -50,21 +66,11 @@ const gameCheck = (player) => {
             return [true,game]
         
     return [false,0]
-            
-
 }
 
-
-
-export const computerMovement = () =>{
-
-    const headerTicTacToe = document.querySelector("#header-tic-tac-toe")
-    headerTicTacToe.innerHTML="<h3><span class='turn'>COMPUTER</span> TURN</h3>"
-    
-    const cells = document.querySelectorAll(".cell")   
-    
-    setTimeout(()=> {const selectCellNumber = () => {
-        
+const selectCellNumber = () => {
+    const cells = document.querySelectorAll(".cell") 
+    let choice=-1
     // CASOS => ES una puerta NOR
     // A Ac S
     // 0 0  1
@@ -72,67 +78,96 @@ export const computerMovement = () =>{
     // 1 0  0
     // 1 1  0 
 
+
+
         const listAviableCells = []
+        const listPlayerCells = []
+        const listComputerCells = []
 
         for(let i=0; i<cells.length; i++)
-            if(!(cells[i].children[0].classList.contains("active") || cells[i].children[0].classList.contains("active-computer")))
-                listAviableCells.push(i)
-                
+            {
+                if(!(cells[i].children[0].classList.contains("active") || cells[i].children[0].classList.contains("active-computer")))
+                    listAviableCells.push(i)
 
-        return listAviableCells[0]
+                if(cells[i].children[0].classList.contains("active"))
+                    listPlayerCells.push(i)
+
+                if(cells[i].children[0].classList.contains("active-computer"))
+                    listComputerCells.push(i)
+            }
+
+        // If first game, center cell
+
+        if (listAviableCells.length == 9)
+            choice = 4
+        else
+        {
+            // If not, we'll see if we can "screw" the players game in all it's variants
+            
+        }
+        
+
+        
+
+        return choice
     }
 
-    const cellNumber = selectCellNumber()
-
-    selectCell(cells[cellNumber],"computer")},1500)  
+export const computerMovement = () =>{
+    canSelect=false
+    const headerTicTacToe = document.querySelector("#header-tic-tac-toe")
+    headerTicTacToe.innerHTML="<h3><span class='turn'>COMPUTER</span> TURN</h3>"
+    canSelect=false
+    setTimeout(()=>{
+        const cells = document.querySelectorAll(".cell")   
+        const cellNumber = selectCellNumber()    
+        canSelect=true
+        selectCell(cells[cellNumber],"computer")
+        
+    },1500)
 
 }
 
 const selectCell = (e,player) => {
-    let cellToActive
-    let result
-    let play
-    let nextPlayer
+    if(canSelect)
+    {
+        deleteTicTacToeListeners(e)
+        let cellToActive
+        let result
+        let play
+        let nextPlayer
 
-    (e.target) ?
-        cellToActive = e.target
-        :
-        cellToActive = e
+        (e.target) ?
+            cellToActive = e.target
+            :
+            cellToActive = e
 
-    if(player === "player")
-            {
-                
-                cellToActive.classList.add("active")
-                cellToActive.classList.remove("cell-content")
-                nextPlayer="computer"
-                
-            }
-        
-    else
-            {
-                cellToActive.innerHTML="<span class='cell-content'>⭕</span>"
-                cellToActive.children[0].classList.add("active-computer")
-                cellToActive.children[0].classList.remove("cell-content")                
-                nextPlayer="player"
-                
-                
-            }
-
-    [result,play] = gameCheck(player)
-    console.log(result+" "+play)
-    if(result)
-        gameWinner(player,play)
-    else{ 
-                switch(nextPlayer){
-                    case 'player':
-                        playerMovement()
-                    break;
-                    case 'computer':
-                        computerMovement()
-                    break;        
+        if((player === "player"))
+                {
+                    
+                        cellToActive.classList.add("active")
+                        cellToActive.classList.remove("cell-content")
+                        nextPlayer="computer"
+                        canSelect = false
+                    
                 }
-        }    
+            
+        else
+                {
+                    cellToActive.innerHTML="<span class='cell-content'>⭕</span>"
+                    cellToActive.children[0].classList.add("active-computer")
+                    cellToActive.children[0].classList.remove("cell-content")                
+                    nextPlayer="player"
+                    
+                    
+                }
 
+        [result,play] = gameCheck(player)
+        if(result)
+                gameWinner(player,play)
+        else{ 
+                gameTurn(nextPlayer)
+            }    
+    }
 }
 
 const gameWinner = (winner) => {
@@ -178,22 +213,25 @@ export const addTicTacToeListeners = () => {
 
     const buttonStart = document.querySelector('#tic-tac-toe-empezar')
     const buttonBack = document.querySelector('#tic-tac-toe-volver')
-    const cells = document.querySelectorAll(".cell")
+
 
     buttonBack.addEventListener("click",()=>initContent("hub"))
-    buttonStart.addEventListener("click",()=>startGame())
+    buttonStart.addEventListener("click",()=>gameTurn())
 
-    for (let cell of cells)
-        cell.addEventListener("click",(e)=>selectCell(e,"player"))
 
-        // Evento de click para probar el movimiento del ordenador
-        document.addEventListener('keydown', (event) => {
-            computerMovement()
-        });
+        // // Evento de click para probar el movimiento del ordenador
+        // document.addEventListener('keydown', (event) => {
+        //     computerMovement()
+        // });
 
 }
+const addTicTacToeGameListeners = () => {
+    const cells = document.querySelectorAll(".cell")
+    for (let cell of cells)
+    cell.addEventListener("click",(e)=>selectCell(e,"player"))
 
-const deleteTicTacToeListeners = () => {
+}
+const deleteTicTacToeListeners = (e) => {
     const cells = document.querySelectorAll(".cell")
     for (let cell of cells)
         cell.removeEventListener("click",(e)=>selectCell(e,"player"))
