@@ -183,6 +183,10 @@ const selectCellNumber = () => {
 
     }
 
+const findOpportunity = () => {
+    
+}
+
 export const computerMovement = () =>{
     canSelect=false
     const headerTicTacToe = document.querySelector("#header-tic-tac-toe")

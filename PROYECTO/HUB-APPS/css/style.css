@@ -81,3 +81,14 @@ h1,h2 {
 .oculto {
   display: none;
 }
+
+.card-title {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title h3 {
+  height:1em;
+  margin:0;
+}

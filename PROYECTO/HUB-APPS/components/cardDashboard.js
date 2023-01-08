@@ -38,7 +38,7 @@ export const addCardEventListener = (game) => {
 
 
 export const cardDashboard = (game) => `
-    <figure id="card-${game.name}" style="background:rgba(0,0,0,0.2) url('${game.img}'); background-position:center; background-size: contain; background-repeat: no-repeat;" class="card">        
+    <figure id="card-${game.name}" style="background:rgba(0,0,0,0.2) url('${game.img}');height:150px; background-position:center; background-size: contain; background-repeat: no-repeat;" class="card">        
         <div class="card-title">
             <h3>${game.name}</h3>
         </div>        

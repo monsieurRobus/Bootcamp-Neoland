@@ -6,7 +6,8 @@ import { addLoginEventListeners, printTemplate as printLoginTemplate } from './p
 import { whackAMole as printWhackAMoleTemplate, addWhackEventListeners } from './components/whackAMole/whackAMole'
 import { ticTacToe as printTicTacToe, addTicTacToeListeners } from './components/ticTacToe/ticTacToe'
 import { quizGame as printQuizGame, eventListeners as addQuizEventListeners } from './components/quizGame/quizGame'
-import { memoryGame as printMemoryGame } from './components/memoryGame/memoryGame'
+import { memoryGame as printMemoryGame, addEventListeners as addMemoryGameListeners} from './components/memoryGame/memoryGame'
+import { pokeApi as printPokeApiTemplate } from './components/pokeApi/pokeApi'
 
 
 document.querySelector('#app').innerHTML = `
@@ -33,7 +34,7 @@ export const initContent = (navigation) => {
         break;
       case "memoryGame":
           main.innerHTML = printMemoryGame()
-          // addTicTacToeListeners()
+          addMemoryGameListeners()
         break;
       case "hub":
           main.innerHTML = printHubTemplate()
