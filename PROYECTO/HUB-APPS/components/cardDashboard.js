@@ -8,7 +8,6 @@ import { whackAMole } from "./whackAMole/whackAMole"
 
 
 export const addCardEventListener = (game) => {
-    console.log(game)
     const cardElement = document.querySelector(`#card-${game}`)
             
     switch(game) {
@@ -19,7 +18,7 @@ export const addCardEventListener = (game) => {
             cardElement.addEventListener('click',()=>{initContent("hangMan")})
         break;
         case 'memoryGame':
-            cardElement.addEventListener('click',()=>{initGame("memoryGame")})
+            cardElement.addEventListener('click',()=>{initContent("memoryGame")})
         break;
         case 'quizGame':
             cardElement.addEventListener('click',()=>{initContent("quizGame")})

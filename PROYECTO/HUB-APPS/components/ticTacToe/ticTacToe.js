@@ -71,6 +71,7 @@ const gameCheck = (player) => {
 const selectCellNumber = () => {
     const cells = document.querySelectorAll(".cell") 
     let choice=-1
+    // FUNCION DE SELECCION DE CELDA POR PARTE DE LA COMPUTADORA
     // CASOS => ES una puerta NOR
     // A Ac S
     // 0 0  1
@@ -83,7 +84,18 @@ const selectCellNumber = () => {
         const listAviableCells = []
         const listPlayerCells = []
         const listComputerCells = []
-
+        let result
+        let element
+        const possibleGames = [
+            [0,1,2],
+            [3,4,5],
+            [6,7,8],
+            [0,3,6],
+            [1,4,7],
+            [2,5,8],
+            [0,4,8],
+            [2,4,6]
+        ]
         for(let i=0; i<cells.length; i++)
             {
                 if(!(cells[i].children[0].classList.contains("active") || cells[i].children[0].classList.contains("active-computer")))
@@ -96,6 +108,8 @@ const selectCellNumber = () => {
                     listComputerCells.push(i)
             }
 
+           
+
         // If first game, center cell
 
         if (listAviableCells.length == 9)
@@ -103,13 +117,70 @@ const selectCellNumber = () => {
         else
         {
             // If not, we'll see if we can "screw" the players game in all it's variants
+            if (listPlayerCells.length==2)
+                {
+                    result = possibleGames.filter(arr2 => {
+                        let count = 0
+                        let extra = -1
+                        for (const elem of listPlayerCells) {
+                            if (arr2.includes(elem)) {
+                            count++;
+                            }                            
+                            
+                        }
+                        return count >= 2 
+                    })
+
+
+
+                console.log(result)
+                    
+                
+                if(result.length > 0){
+                    
+                    element = result[0].find( 
+                        x=> !listPlayerCells.includes(x)
+                    
+                    
+                    )
+                
+                }
+                else {
+                    element = listAviableCells[Math.floor(Math.random()*listAviableCells.length)]
+                }
+
+                choice = element
+
+                }
+            else if(listPlayerCells>2) 
+            {
+                choice = listAviableCells[Math.floor(Math.random()*listAviableCells.length)]
+            }
             
-        }
+            else{
+
+                if(listAviableCells.includes(4)) 
+                    {
+                        // If player didn't choose center cell, then computer will
+                        choice = 4                
+                    }
+                else
+                    {
+                        choice = listAviableCells[Math.floor(Math.random()*listAviableCells.length)]
+                    }
+                }
+
+            
+            
+
+        }   
         
 
         
 
         return choice
+    
+
     }
 
 export const computerMovement = () =>{
@@ -170,7 +241,19 @@ const selectCell = (e,player) => {
     }
 }
 
-const gameWinner = (winner) => {
+const gameWinner = (winner,play) => {
+    
+    const cells = document.querySelectorAll(".cell")  
+    const headerTicTacToe = document.querySelector("#header-tic-tac-toe")
+    headerTicTacToe.innerHTML=`<h3><span class='turn'>${winner}</span> wins!!!</h3>`
+    for (let cell of play)
+        {
+            cells[cell].classList.add("winner")
+            cells[cell].children[0].classList.remove("active")
+            cells[cell].children[0].classList.remove("active-computer")
+        }
+
+
 
 }
 

@@ -5,6 +5,8 @@ import { addCardEventListeners, printTemplate as printHubTemplate } from './page
 import { addLoginEventListeners, printTemplate as printLoginTemplate } from './pages/Login/Login'
 import { whackAMole as printWhackAMoleTemplate, addWhackEventListeners } from './components/whackAMole/whackAMole'
 import { ticTacToe as printTicTacToe, addTicTacToeListeners } from './components/ticTacToe/ticTacToe'
+import { quizGame as printQuizGame, eventListeners as addQuizEventListeners } from './components/quizGame/quizGame'
+import { memoryGame as printMemoryGame } from './components/memoryGame/memoryGame'
 
 
 document.querySelector('#app').innerHTML = `
@@ -21,7 +23,6 @@ export const initContent = (navigation) => {
       case "whackAMole":
           main.innerHTML = printWhackAMoleTemplate()
           addWhackEventListeners()
-          console.log("test")
         break;
       case "pokeApi":
           main.innerHTML = printPokeApiTemplate()
@@ -30,9 +31,17 @@ export const initContent = (navigation) => {
           main.innerHTML = printTicTacToe()
           addTicTacToeListeners()
         break;
+      case "memoryGame":
+          main.innerHTML = printMemoryGame()
+          // addTicTacToeListeners()
+        break;
       case "hub":
           main.innerHTML = printHubTemplate()
           addCardEventListeners()
+        break;
+      case "quizGame":
+          main.innerHTML = printQuizGame()
+          addQuizEventListeners()
         break;
       case undefined:
           main.innerHTML = printLoginTemplate()

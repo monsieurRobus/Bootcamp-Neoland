@@ -55,3 +55,7 @@
     display:block;
     opacity:1;
   }
+
+  .winner {
+    background-color: green;
+  }
