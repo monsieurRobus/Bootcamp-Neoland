@@ -1,6 +1,7 @@
 import { initContent } from "../../main"
 import { Button } from "../button"
 import { urlPokemon, urlPokemonSpecies } from "./urlPokemon"
+import { pokemonTypes } from "./pokemonTypes"
 
 import './pokeApi.css'
 
@@ -17,9 +18,11 @@ export const pokeApi = () => `
 
         
         <input id="busqueda" placeholder="Search" type="text"/>${Button("⬅️",'previous-page')}<span id="pokemon-page"></span>${Button("➡️",'next-page')}</div>
+        <div id="pokemon-type-filter">${getTypesFilter()}</div>
         <div id="botonera-pokedex">${Button("volver",'volver-pokeapi')}</div>
         
     </section>
+    
     <div id="pokemon-modal" class="modal-pokemon">
         <div class="modal-pokemon-content">
             <div id="close-modal" ><span class="close">&times;</span></div>
@@ -69,16 +72,19 @@ export const getPokemon = async(inicial) => {
                     [listaNombresPokemon,listaPokemon] =res
 
                     dibujaPokemon(listaPokemon)
-                })                            
+                })    
+                
+    
 
             
     
 
 }
 
-const preparaListaPokemon = async(lista,pagina=1,filters='none') => {
+const preparaListaPokemon = async(lista,pagina=1,filters='none',name='none') => {
     let listaCompleta = []
     
+
     const pokemonPage = document.querySelector("#pokemon-page")
     pokemonPage.innerHTML=pagina
     
@@ -92,11 +98,24 @@ const preparaListaPokemon = async(lista,pagina=1,filters='none') => {
         }
         
     for (let i=15*(pagina-1);i<15*pagina;i++)
-        try {listaCompleta.push(await fetch(lista[i].url).then(res=>res.json()))
+        try {listaCompleta.push(await fetch(lista[i].url).then(res=>res.json())
+                .then(res => {
+                        
+                    if(filters!='none')
+                        {                              
+                            res.types.forEach(x=> console.log(x))
+                        }
+                        
+                        return res                    
+                    }
+
+                )
+            )
             
         }
         catch { console.info("Ese pokemon no está en la lista")}
         
+
         return [lista,listaCompleta]
 }
 
@@ -112,6 +131,7 @@ const dibujaPokemon = (lista) => {
             </div>`
 
     addPokeCardsEventListeners()
+    addPokeFiltersEventListeners()
 }
 
 
@@ -188,6 +208,7 @@ export const addEventListeners = () => {
     const next = document.querySelector("#next-page")
     const previous = document.querySelector("#previous-page")  
     const closeModal = document.querySelector("#close-modal") 
+    
     next.addEventListener("click",nextPage)
     previous.addEventListener("click",prevPage)
     volver.addEventListener("click",()=>initContent("hub"))
@@ -203,6 +224,15 @@ const addPokeCardsEventListeners = () => {
             card.addEventListener("click",pokemonDetail,false)
         
 
+}
+
+const addPokeFiltersEventListeners =() => {
+    
+    const pokeFilters = document.querySelectorAll('.filter-btn')
+    for (let filter of pokeFilters)
+        {
+            filter.addEventListener("click",applyFilter)
+        }
 }
 
 const nextPage = () => {
@@ -369,5 +399,36 @@ const getAttacks = (pokemon) => {
 
 
     return elemento
+
+}
+
+const getTypesFilter = () => {
+    let result=''
+    for (let type of pokemonTypes) 
+    {
+        result+=`<img id="${type.name}" title="${type.name}" class="filter-btn" src="${type.img}" alt="filter ${type.name}" />`
+    }
+    return result
+}
+
+
+const applyFilter = (e) => {
+
+    const filterToApply = e.target.id;
+
+
+    let pagina = document.querySelector("#pokemon-page").innerHTML
+
+            const resultado = async () => {
+                return await preparaListaPokemon(listaNombresPokemon,pagina,filterToApply)
+                .then(res=>
+                    {
+                    dibujaPokemon(res[1])
+                    listaPokemon=res[1]
+                })
+            }
+
+        resultado()
+
 
 }

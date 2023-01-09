@@ -18,7 +18,8 @@ export const addLoginEventListeners = () => {
 export const userLogin = () => {
 
     const user = document.querySelector('#nameLogin')
-    user.value == '' ? invalidUsername() :  loginSuccess(user.value) 
+    user.value == '' ? invalidUsername() :  
+        (user.value.toLowerCase() == 'carlos') ? loginSuccess(user.value+"🎉") : loginSuccess(user.value) 
 
 }
 
@@ -60,6 +61,7 @@ export const printTemplate = () => `
 <section id="login">
     <h2>¡Hola! uwu</h2>
     <h3>¿Cómo te llamas?🤔</h3>
+
     <div>
         <input id="nameLogin" ></input><button>➡️</button>
     </div>
