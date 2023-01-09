@@ -7,7 +7,7 @@ import { whackAMole as printWhackAMoleTemplate, addWhackEventListeners } from '.
 import { ticTacToe as printTicTacToe, addTicTacToeListeners } from './components/ticTacToe/ticTacToe'
 import { quizGame as printQuizGame, eventListeners as addQuizEventListeners } from './components/quizGame/quizGame'
 import { memoryGame as printMemoryGame, addEventListeners as addMemoryGameListeners} from './components/memoryGame/memoryGame'
-import { pokeApi as printPokeApiTemplate } from './components/pokeApi/pokeApi'
+import { getPokemon,addEventListeners as addPokeApiEventListeners, pokeApi as printPokeApiTemplate } from './components/pokeApi/pokeApi'
 
 
 document.querySelector('#app').innerHTML = `
@@ -27,6 +27,8 @@ export const initContent = (navigation) => {
         break;
       case "pokeApi":
           main.innerHTML = printPokeApiTemplate()
+          getPokemon()
+          addPokeApiEventListeners()
         break;
       case "ticTacToe":
           main.innerHTML = printTicTacToe()
