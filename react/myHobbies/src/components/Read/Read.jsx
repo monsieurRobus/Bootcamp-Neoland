@@ -14,7 +14,13 @@ const Read = (readInfo) => {
                     <h4>{readInfo.data.title} {readInfo.data.dateOfPublication}</h4>
                     <img src={readInfo.data.bookImage} />                
                 </Book>
-                <Books books={readInfo.data.otherBooks} />
+                <ul>
+                {readInfo.data.otherBooks.map( (book,index) => {
+                    
+                    return <Books key={index} data={book} />
+                
+                })}
+                </ul>
             </div>
         </section>
     );

@@ -1,17 +1,13 @@
-import React from 'react';
+import {useState} from 'react';
 
 
 
-const Books = (props) => {
+const Books = ({data}) => {
     return (
-        <ul>
-            {
-                props.books.map( (book) => {
-                    return <li className="booklist-element">{book.info}</li>
-                })
-            }
-        </ul>
-    );
+        
+        <li>{data.info}</li>
+        
+    )
 }
 
 export default Books;

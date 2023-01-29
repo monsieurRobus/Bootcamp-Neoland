@@ -20,6 +20,9 @@ export const HOBBIES = {
         {
         info: "Caín",
         },
+        {
+        info: "Teo va al parque",
+        },
     ],
     },
     sports: [
@@ -54,9 +57,9 @@ export const HOBBIES = {
     },
     ],
     languages: [{
-    language: "English",
-    wrlevel: "B2",
-    splevel: "C1",
+        language: "English",
+        wrlevel: "B2",
+        splevel: "C1",
     },
     {
         language: "Italian",
@@ -70,14 +73,14 @@ export const HOBBIES = {
         },
 ],
     songsHeard: [
-    "Knights of Cydonia",
-    "Black Hole Sun",
-    "Such a beautiful day",
-    "Be quiet and drive",
-    "Hunting for witches",
-    "Reminder",
-    "Somebody told me",
-    "Bodysnatchers",
+        "Knights of Cydonia",
+        "Black Hole Sun",
+        "Such a beautiful day",
+        "Be quiet and drive",
+        "Hunting for witches",
+        "Reminder",
+        "Somebody told me",
+        "Bodysnatchers",
     ],
     
 };

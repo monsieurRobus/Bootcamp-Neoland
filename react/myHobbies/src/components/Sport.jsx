@@ -1,10 +1,15 @@
-import React from 'react';
+import React from 'react'
+import './sports.css'
 
 const Sport = ({data}) => {
     return (
-        <div>
-            
-        </div>
+        <figure className="sport">
+            <h3>{data.name}</h3>
+            <ul>
+                <li>{data.favoriteTeam}</li>
+                <li>{data.indoor ? 'Indoor sport': 'NOPE'}</li>
+            </ul>
+        </figure>
     );
 }
 

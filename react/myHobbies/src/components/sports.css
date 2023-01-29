@@ -1,0 +1,17 @@
+.sports {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.sport {
+    width:150px;
+    background-color:gray;
+    padding:1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 5px black;
+}

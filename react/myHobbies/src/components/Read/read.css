@@ -2,7 +2,8 @@
     display:flex;
     flex-wrap: wrap;
     align-items:flex-start;
-    gap:3rem;
+    justify-content: center;
+    gap:10vw;
 }
 
 .read h1,h2,h3,h4 {
