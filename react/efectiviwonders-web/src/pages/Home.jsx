@@ -1,11 +1,13 @@
 import React from 'react'
 import {  Outlet } from 'react-router-dom'
 import Header from '../components/header/Header'
+import Hero from '../components/Hero/Hero'
 
 const Home = () => {
   return (
     <main >
-        Hola
+        <Hero />
+        
     </main>
   )
 }

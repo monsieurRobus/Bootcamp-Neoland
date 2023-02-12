@@ -1,2 +1,13 @@
 .App {
 }
+
+main {
+    margin-top:22vh;
+}
+
+@media only screen and (max-width:600px)
+{
+    main {
+        margin-top:8vh;
+    }
+}
