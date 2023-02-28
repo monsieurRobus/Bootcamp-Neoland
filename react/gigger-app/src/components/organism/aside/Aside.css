@@ -1,10 +1,11 @@
 aside {
     background-color: #89daf8;
+    position:fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:5vw;
+    width:15vw;
     height:100vh;
     transition: all 0.4s ease;
     z-index: 99999;
@@ -13,14 +14,24 @@ aside {
 .botonprueba {
     position:fixed;
     background-color: #89daf8;
-    bottom:10px;
-    left:10px;
+    bottom:0px;
+    left:0px;
     border-radius: 50%;
-    width:3vw;
-    height:3vw;
+    width:40px;
+    height:40px;
     z-index: 99999;
 }
 
 .menuabre {
     width:0;
+}
+
+@media screen and (max-width: 720px) {
+
+    aside {
+        
+        width: 20vw;
+        
+    }
+    
 }

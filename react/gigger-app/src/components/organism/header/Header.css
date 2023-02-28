@@ -1,9 +1,10 @@
 header.header-general{
     display:flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
-    margin:0;
-    padding:0.5em 1em;
+    
+    
     background: #ff007d;
     position: fixed;
     top:0;

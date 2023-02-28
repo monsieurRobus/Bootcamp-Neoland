@@ -5,7 +5,7 @@ import {Outlet} from 'react-router-dom'
 const MainView = () => {
   return (
     <section>
-        <h1>Hola</h1>
+        <Outlet />
     </section>
   )
 }

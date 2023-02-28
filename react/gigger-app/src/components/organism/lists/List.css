@@ -6,3 +6,9 @@ main.main-view {
     align-items:center;
 
 }
+
+main section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
