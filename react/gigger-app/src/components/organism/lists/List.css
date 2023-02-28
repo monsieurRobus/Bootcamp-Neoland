@@ -1,0 +1,8 @@
+main.main-view {
+    margin-top:6vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items:center;
+
+}

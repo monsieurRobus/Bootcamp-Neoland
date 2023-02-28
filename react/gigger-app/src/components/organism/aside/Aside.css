@@ -1,0 +1,26 @@
+aside {
+    background-color: #89daf8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:5vw;
+    height:100vh;
+    transition: all 0.4s ease;
+    z-index: 99999;
+}
+
+.botonprueba {
+    position:fixed;
+    background-color: #89daf8;
+    bottom:10px;
+    left:10px;
+    border-radius: 50%;
+    width:3vw;
+    height:3vw;
+    z-index: 99999;
+}
+
+.menuabre {
+    width:0;
+}
