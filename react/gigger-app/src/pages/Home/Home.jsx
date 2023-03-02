@@ -9,7 +9,7 @@ import Header from '../../components/organism/header/Header'
 import Footer from '../../components/organism/footer/Footer'
 
 
-const Home = () => {
+const Home = (props) => {
 
   const [ songList, setSongList] = useState([])
     const db = getDatabase(app);

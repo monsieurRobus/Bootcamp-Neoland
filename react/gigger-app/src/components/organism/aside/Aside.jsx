@@ -1,6 +1,7 @@
 import React from 'react'
+import { NavLink, Link } from 'react-router-dom'
 import './Aside.css'
-
+// import './../../models/setlist.json'
 
 const handleClose = (e) => {
 
@@ -12,6 +13,8 @@ const Aside = () => {
   return (
     <aside>
       <button className={'botonprueba'} onClick={handleClose}>X</button>
+      {/* <Link to={`/setlist/${}`}>Setlists</Link>  */}
+      
     </aside>
   )
 }
