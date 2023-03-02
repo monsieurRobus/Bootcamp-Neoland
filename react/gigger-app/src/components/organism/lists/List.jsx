@@ -1,26 +1,14 @@
 import React, {useState,useEffect} from 'react'
 import ListElement from '../../molecules/listElement/ListElement'
+import Footer from '../footer/Footer'
+import Header from '../header/Header'
 import './List.css'
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, get , child , onValue} from "firebase/database";
-import {app} from '../../../utils/firebase'
 
 
-const List = () => {
+const List = (props) => {
 
-    const [ songList, setSongList] = useState([])
-    const db = getDatabase(app);
-    const songsRef = ref(db, 'songs/' )
-
-    let songsRefList = []
-
-    useEffect(() => {
-        onValue(songsRef, (snapshot) => {
-            const songs = snapshot.val();
-            setSongList(songs || []);
-            console.log("probando")
-        });
-    }, []);
+    const {listTitle,listDate,editable,songList,setSongList,db,songsRef} =props
+    
     
    
     const handleDragStart = (e,index) => {
@@ -69,23 +57,16 @@ const List = () => {
     return (
         <main className={"main-view"}>
             <section>
+            <Header name={listTitle} date={listDate}/>
                 {   
                     songList?.length > 0 && songList.map((song,index)=> 
-
                         (
-                            <ListElement played={alreadyPlayed} key={index} i={index} lyrics={song.lyrics} dragStart={handleDragStart} dragOver={handleDragOver} dragDrop={handleDrop} dropOver={handleDropOver} tag={song.id} id={song.id} name={song.name} band={song.band} duration={song.duration} tags={song.tags} />
+                            <ListElement editable={editable} played={alreadyPlayed} key={index} i={index} lyrics={song.lyrics} dragStart={handleDragStart} dragOver={handleDragOver} dragDrop={handleDrop} dropOver={handleDropOver} tag={song.id} id={song.id} name={song.name} band={song.band} duration={song.duration} tags={song.tags} />
                         )
-                    
- 
-
                     )
-                    
-                        
-
                 }
-                
             </section>
-
+            <Footer />
         </main>
     )
 }
