@@ -28,7 +28,7 @@ const Home = (props) => {
 
   return (
     <main>
-        <List listTitle={'Mirichaquets Romance'} listDate={'11/03/2023'} editable={false} songList={songList} setSongList={setSongList} db={db} songsRef={songsRef}/>        
+        <List listTitle={'Todas las canciones'} listDate={'-'} editable={false} songList={songList} setSongList={setSongList} db={db} songsRef={songsRef}/>        
     </main>
   )
 }
