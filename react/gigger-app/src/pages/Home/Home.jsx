@@ -10,14 +10,17 @@ import Footer from '../../components/organism/footer/Footer'
 
 
 const Home = (props) => {
-
-  const [ songList, setSongList] = useState([])
+  
+  console.log(props.location);
+  
+    const [ songList, setSongList] = useState([])
     const db = getDatabase(app);
     const songsRef = ref(db, 'songs/' )
 
     let songsRefList = []
 
     useEffect(() => {
+      
         onValue(songsRef, (snapshot) => {
             const songs = snapshot.val();
             setSongList(songs || []);

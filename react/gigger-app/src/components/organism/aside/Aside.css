@@ -8,7 +8,8 @@ aside {
     width:15vw;
     height:100vh;
     transition: all 0.4s ease;
-    z-index: 99999;
+    z-index: 99995;
+    transform: translateX(0px);
 }
 
 .botonprueba {
@@ -23,7 +24,14 @@ aside {
 }
 
 .menuabre {
-    width:0;
+    transform: translateX(-170px);
+}
+
+.setlist-element {
+    position: relative;
+    text-shadow: 1px 1px 3px black;
+    font-size:0.8rem;
+    width:60%;
 }
 
 @media screen and (max-width: 720px) {
@@ -33,5 +41,15 @@ aside {
         width: 20vw;
         
     }
-    
+    .setlist-element {
+        position: relative;
+        padding: 1em;
+        margin: 1em;
+        background-color: gray;
+        border-radius: 10px;
+        text-shadow: 1px 1px 3px black;
+        font-size:0.5rem;
+        width:60%;
+    }
 }
+

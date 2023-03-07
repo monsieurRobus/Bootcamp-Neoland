@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-
 import { getDatabase, ref, set, get , child , onValue} from "firebase/database"
 
 import {app} from '../../../utils/firebase'
@@ -11,6 +10,7 @@ import './Aside.css'
 
 const handleClose = (e) => {
 
+  document.querySelector('aside').classList.toggle('menuabre')
 
 }
 
@@ -28,14 +28,18 @@ const Aside = () => {
 }, []);
 
   return (
-    <aside>
+    <>
       <button className={'botonprueba'} onClick={handleClose}>X</button>
-      {
-        setlistList.map((setlist)=>{{console.log(setlist)}
-          <div key={setlist.id}>{setlist.id} {setlist.name}</div>
-        })
-      }
-    </aside>
+      <aside className={"menuabre"}>
+        
+        {
+          setlistList.map((setlist)=>
+            <NavLink to="/test" key={setlist.id} state={{ejemplo:"hola"}} className={"setlist-element"} >{setlist.name}</NavLink>
+          )
+        }
+        <div className={"setlist-element"}>Complete list</div>
+      </aside>
+    </>
   )
 }
 
