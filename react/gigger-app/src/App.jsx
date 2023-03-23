@@ -3,9 +3,6 @@ import { useState, useEffect } from 'react'
 import './utils/firebase'
 
 import './App.css'
-import Aside from './components/organism/aside/Aside'
-import MainView from './components/organism/mainview/MainView'
-import  { Outlet } from 'react-router-dom'
 
 
 
@@ -20,8 +17,6 @@ function App() {
 
   return (
     <div className="App">
-      <Aside />
-      <MainView />
     </div>
   )
 }
