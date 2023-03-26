@@ -1,0 +1,30 @@
+export const formTypes = {
+    LABEL: 'label',
+    TEXT: 'text',
+    TEXTAREA: 'textarea',
+    SELECT: 'select',
+    CHECKBOX: 'checkbox',
+    RADIO: 'radio',
+    DATE: 'date',
+    TIME: 'time',
+    DATETIME: 'datetime',
+    FILE: 'file',
+    SUBMIT: 'submit',
+    BUTTON: 'button',
+    COLOR: 'color',
+    EMAIL: 'email',
+    NUMBER: 'number',
+    PASSWORD: 'password',
+    RANGE: 'range',
+    SEARCH: 'search',
+    TEL: 'tel',
+    URL: 'url',
+    WEEK: 'week',
+    MONTH: 'month',
+    HIDDEN: 'hidden',
+    IMAGE: 'image',
+    TAG_STYLES: 'tag-styles',
+
+}
+
+export default formTypes

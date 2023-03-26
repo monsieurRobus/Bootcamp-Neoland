@@ -1,8 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import './utils/firebase'
-
 import './App.css'
+import SongForm from './components/organism/songForm/SongForm'
 
 
 
@@ -17,6 +16,7 @@ function App() {
 
   return (
     <div className="App">
+      <SongForm />
     </div>
   )
 }
