@@ -19,7 +19,6 @@ const songFormGenerator = () => {
                             type="text"
                             placeholder={formElement.placeholder}
                             required={formElement.required}
-                            value={formElement.value}
                         />
                     </div>
                 )
@@ -31,7 +30,6 @@ const songFormGenerator = () => {
                             type="text"
                             placeholder={formElement.placeholder}
                             required={formElement.required}
-                            value={formElement.value}
                         />
                     </div>
                 )
@@ -43,7 +41,6 @@ const songFormGenerator = () => {
                             type='time'
                             placeholder={formElement.placeholder}
                             required={formElement.required}
-                            value={formElement.value}
                         />
                     </div>
                 )

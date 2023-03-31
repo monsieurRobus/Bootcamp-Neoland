@@ -65,7 +65,6 @@ const Forms = ({data}) => {
                                 <input
                                     type={item.type}
                                     name={item.name}
-                                    value={option.value}
                                 />
                                 {option.label}
                             </label>
@@ -81,7 +80,6 @@ const Forms = ({data}) => {
                                 <input
                                     type={item.type}
                                     name={item.name}
-                                    value={option.value}
                                 />
                                 {option.label}
                             </label>
