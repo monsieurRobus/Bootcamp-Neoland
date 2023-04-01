@@ -2,34 +2,35 @@ import {formTypes} from '../../../config/formTypes'
 
 export const songFormList = [
     {
+        id:'song-title',
         name: 'Song Title',
         inputType: formTypes.TEXT,
         placeholder: 'Song Title',
         required: true,
-        value: '',
 
     },
     {
+        id:'band-name',
         name: 'Band Name',
         inputType: formTypes.TEXT,
         placeholder: 'Band Name',
         required: true,
-        value: '',
     },
     {
         name: 'Tag Styles',
         inputType: formTypes.TAGS_STYLES,
         placeholder: 'Styles',
         required: true,
-        value: '',
     },
     {
+        id: 'duration',
         name: 'Duration',
         inputType: formTypes.TIME,
         required: true,
 
     },
     {
+        id: 'submit-button',
         name: 'Enviar',
         inputType: formTypes.SUBMIT,
         required: true,
