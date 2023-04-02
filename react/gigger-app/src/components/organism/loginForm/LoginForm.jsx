@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import FormGenerator from '../../../utils/FormGenerator'
 import { loginFormList } from './loginFormList'
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 import '../../../models/users.json'
 import axios from 'axios'
@@ -33,6 +33,7 @@ const LoginForm = () => {
             <h1>gigger</h1>
             <h2>log in</h2>
             {userLogged===null ? <FormGenerator formList={loginFormList} onSubmit={sendLogin} /> : alert("logeao")}
+            <Outlet />
         </div>
     )
 }
