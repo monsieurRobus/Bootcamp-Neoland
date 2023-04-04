@@ -1,39 +1,30 @@
-import React, { useState, useMemo } from 'react'
-import FormGenerator from '../../../utils/FormGenerator'
+import React, { useState, useContext, useEffect } from 'react'
+import FormGenerator from '../../hooks/FormGenerator'
 import { loginFormList } from './loginFormList'
 import { Outlet, useNavigate } from "react-router-dom";
 
 import '../../../models/users.json'
 import axios from 'axios'
+import { UserContext } from '../../../App';
 
 
 const LoginForm = () => {
-    const navigate = useNavigate()
-    const {login,setLogin} = useState({})
+
     let userLogged = window.localStorage.getItem('user')
 
-    const sendLogin = (login) => {
-    
-        const [username, password] = login
-        axios.get('http://localhost:3000/users')
-            .then(res => {
-                res.data.forEach(user => {
-                    if(user.username === username && user.password === password){
-                        window.localStorage.setItem('user', JSON.stringify(user.username))
-                        
-                    }
-                }
-            )
-            })       
-            console.log(username, password)        
-    }
+    const [user,login] = useContext(UserContext)
+    const navigate = useNavigate()
+    useEffect(() => {
+
+        if(user) navigate("/dashboard", { replace: true }) 
+
+
+    },[user])
 
     return (
         <div>
-            <h1>gigger</h1>
-            <h2>log in</h2>
-            {userLogged===null ? <FormGenerator formList={loginFormList} onSubmit={sendLogin} /> : alert("logeao")}
-            <Outlet />
+        <h2>log in</h2>
+            <FormGenerator formList={loginFormList} onSubmit={login} />
         </div>
     )
 }

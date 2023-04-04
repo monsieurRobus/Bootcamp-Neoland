@@ -4,7 +4,7 @@ import { songFormList } from './SongFormlist'
 import {formTypes} from '../../../config/formTypes'
 import './SongForm.css'
 import LyricsEditor from '../../molecule/LyricsEditor'
-import FormGenerator from '../../../utils/FormGenerator.jsx'
+import FormGenerator from '../../hooks/FormGenerator'
 
 const handleSubmit = (e) => {
 
