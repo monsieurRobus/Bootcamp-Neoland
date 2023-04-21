@@ -7,13 +7,13 @@ import { UserContext } from '../../App'
 
 const Dashboard = () => {
 
-    const [user,logout] = useContext(UserContext)
+    const [user,login,logout] = useContext(UserContext)
     const navigate = useNavigate()
 
     useEffect(() => {
 
         if(!user) navigate("/", { replace: true })  
-
+      
     },[user])
 
   return (
