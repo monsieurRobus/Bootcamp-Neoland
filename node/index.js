@@ -1,13 +1,48 @@
-import http from 'http'
+import inquirer from "inquirer"
 
-const requestHandler = (request, response) => {
-    console.log(request.url)
+const respuesta = [
+    "Rick y morti : Eres un cansino",
+    "Doraemon : Eres un gato",
+    "Scooby Doo : Eres un perro",
+    "Popeye : Eres un marino",
+    "Sonic : Eres un erizo",
+    "Mickey Mouse : Eres un raton"
+]
 
-}
+inquirer.prompt([
+    {
+        name:"name",
+        message: "¿Cual es tu nombre?",
+    },
+    {
+        type: "list",
+        name: "goal",
+        message: "¿Cual es tu objetivo en la vida?",
+        choices: [
+            "Beber",
+            "Leer Documentacion",
+            "Acordarme que es NODE",
+            "Ser un buen programador"
+        ],
+    }
+]).then((answers) => {
 
-const PORT = 3000
-const server = http.createServer(requestHandler)
+    switch(answers.goal){
 
-server.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`)
+
+        case "Beber":
+            console.log(`Hola ${answers.name}, eres ${respuesta[0]}`)
+            break;
+        case "Leer Documentacion":
+            console.log(`Hola ${answers.name}, eres ${respuesta[1]}`)
+            break;
+        case "Acordarme que es NODE":
+            console.log(`Hola ${answers.name}, eres ${respuesta[2]}`)
+            break;
+        case "Ser un buen programador":
+            console.log(`Hola ${answers.name}, eres ${respuesta[3]}`)
+            break;
+
+    }
+
 })
