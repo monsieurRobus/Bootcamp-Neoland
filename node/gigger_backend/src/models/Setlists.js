@@ -6,7 +6,7 @@ const SetlistSchema = new mongoose.Schema(
         votes: { type: Number, required: true},
         createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'Musician' },
         songs: [ 
-            {type: mongoose.Schema.Types.ObjectId, ref: 'Song'}
+            {type: mongoose.Schema.Types.ObjectId, ref: 'Song', required: true}
         ]
     },
     {

@@ -1,13 +1,6 @@
 require('./utils/db')
-require('./utils/server')
+const {app,routes} = require('./utils/server')
+const songsRoutes = require('./src/routes/song.routes')
+const setlistsRoutes = require('./src/routes/setlist.routes')
 
-const Song = require('./src/models/Songs')
-const { db } = require('./src/models/Songs')
-const songList = require('./src/seeds/song.seeder')
-
-db.then(async () => {
-
-    await Song.insertMany(songList)
-
-})
-
+app.use('/',routes)
